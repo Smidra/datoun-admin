@@ -26,7 +26,7 @@ jobs:
       uses: actions/deploy-pages@v1.0.8
       with:
         # GitHub token
-        token: ${{ github.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
         timeout: 600000
         # Maximum number of status report errors before cancelling a deployment (default: 10)
