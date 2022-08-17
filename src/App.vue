@@ -6,13 +6,6 @@ import axios from 'axios'
 const new_id = 2
 let aktualni_vyrobny = ref([{id: 1}])
 
-// let value = ref("ahoj")
-// const handler = event => { value = event }
-
-// function submitHandler (inputData){
-//   axios.get('https://wiki.smid.io').then(response => console.log(inputData))
-// }
-
 const axios_instance = axios.create({
   baseURL: 'https://wiki.smid.io/',
   timeout: 1000,
@@ -22,7 +15,6 @@ const axios_instance = axios.create({
 });
 
 function submitHandler (inputData){
-  // axios_instance.get('/indexes').then(response => console.log(response))
   axios_instance.post('/indexes/firmy/documents', inputData).then(response => console.log(response))
 }
 
@@ -66,9 +58,8 @@ function submitHandler (inputData){
       help="Přípustné jsou pouze firmy B2C"
       @input="handler"
     />
-    <!-- logo -->
+    <!-- Přidat upload loga firmy -->
     <!-- Pridavani vyroben +- -->
-    <!-- <button @click="count++">{{ count }}</button> -->
     <FormKit
       v-model="list"
       type="list"
@@ -87,11 +78,7 @@ function submitHandler (inputData){
       label="Odebrat výrobnu"
       @click="aktualni_vyrobny.pop(); new_id--"
     />
-
-    <!-- <FormKit
-      type="button"
-      label="Odeslat do databáze"
-    /> -->
+    
     <pre wrap>{{ value }}</pre>
     </FormKit>
 
