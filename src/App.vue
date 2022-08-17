@@ -22,6 +22,8 @@ function submitHandler (inputData){
 
 <template>
 
+  <h1>Přidat novou firmu</h1>
+
   <FormKit
     type="form"
     submit-label="Poslat"
@@ -91,6 +93,9 @@ function submitHandler (inputData){
 </template>
 
 <style>
+h1{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .row {
   display: flex;
 }

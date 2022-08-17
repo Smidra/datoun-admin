@@ -15,7 +15,7 @@ let pole_kategorii = ref([ 1 ])
 </script>
 
 <template>
-<label class="formkit-label" style="font-size: large;">> Výrobna #{{ factory_number }} </label>
+<label class="formkit-label" style="font-size: large;">➔ Výrobna #{{ factory_number }} </label>
 
 <FormKit
   type="group">
@@ -49,7 +49,7 @@ let pole_kategorii = ref([ 1 ])
   >
     <Kategorie v-for="item in pole_kategorii" :key=item :cat_number="item" />
   </FormKit>
-  
+
   <div class="row">
   <FormKit
     type="button"
