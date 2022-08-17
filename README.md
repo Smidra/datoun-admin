@@ -4,9 +4,11 @@ Vyvíjím ve Vue 3 + Formkit + Axios
 
 Live build tohoto repozitáře:
 * https://smidra.github.io/vyrobky-admin/
+* https://github.com/Smidra/vyrobky-admin (REPO)
 
 Preview katalogu na testování:
 * https://smidra.github.io/vyrobky-katalog/dist/
+* https://github.com/Smidra/vyrobky-katalog (REPO)
 
 ## TODO
 * [x] Zařídit odeslání JSONu do databáze
