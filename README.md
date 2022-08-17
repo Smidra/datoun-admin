@@ -1,5 +1,6 @@
 # Výrobky - admin
 Tato Vue 3 aplikace je od úpravy (především insertu) dat v Meilisearch databázi českých výrobků.
+Vyvíjím ve Vue 3 + Formkit + Axios
 
 ## TODO
 * [x] Zařídit odeslání JSONu do databáze
