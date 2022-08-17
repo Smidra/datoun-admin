@@ -14,8 +14,8 @@ defineProps({
 <!-- Jaké kategorie výrobků se ve výrobně vyrábí -->
 <FormKit
     type="text"
-    label="Kategorie"
-    help="Co se ve výrobně vyrábí přesně za typy produktů." 
+    label=""
+    help="" 
 />
 
 </template>

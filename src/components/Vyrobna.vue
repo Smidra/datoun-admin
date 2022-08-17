@@ -15,7 +15,7 @@ let pole_kategorii = ref([ 1 ])
 </script>
 
 <template>
-<h1>--- Výrobna #{{ factory_number }} ---</h1>
+<label class="formkit-label" style="font-size: large;">> Výrobna #{{ factory_number }} </label>
 
 <FormKit
   type="group">
@@ -38,6 +38,10 @@ let pole_kategorii = ref([ 1 ])
       help="Co nejpřesnějši popište, co se v této výrobně/továrně vyrábí."
     />
   <!-- Jaké kategorie výrobků se ve výrobně vyrábí -->
+  <label class="formkit-label">Kategorie</label>
+  <label class="formkit-help" style="padding-bottom:10pt;">Co se ve výrobně vyrábí přesně za typy produktů.</label>
+  <label class="formkit-label"></label>
+
   <FormKit
     v-model="list"
     type="list"
@@ -45,20 +49,36 @@ let pole_kategorii = ref([ 1 ])
   >
     <Kategorie v-for="item in pole_kategorii" :key=item :cat_number="item" />
   </FormKit>
-
+  
+  <div class="row">
   <FormKit
     type="button"
-    label="Přidat kategorii"
-    style="background-color:darkgoldenrod;"
+    label="➕"
+    class="column"
+    style="background-color:lightpink;"
     @click="pole_kategorii.push(pocet_kategorii); pocet_kategorii++"
   />
   <FormKit
     type="button"
-    label="Odebrat kategorii"
-    style="background-color:darkgoldenrod;"
+    label="➖"
+    class="column"
+    style="background-color:lightpink;"
     @click="pole_kategorii.pop(); pocet_kategorii--"
   />
+  </div>
 
 </FormKit>
 
 </template>
+
+
+
+<style>
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+</style>

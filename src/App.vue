@@ -21,6 +21,7 @@ function submitHandler (inputData){
 </script>
 
 <template>
+
   <FormKit
     type="form"
     submit-label="Poslat"
@@ -68,18 +69,33 @@ function submitHandler (inputData){
       <Vyrobna v-for="item in aktualni_vyrobny" :key="item.id" :factory_number="item.id" />
     </FormKit>
 
-    <FormKit
-      type="button"
-      label="Přidat výrobnu"
-      @click="aktualni_vyrobny.push({id: new_id}); new_id++"
-    />
-    <FormKit
-      type="button"
-      label="Odebrat výrobnu"
-      @click="aktualni_vyrobny.pop(); new_id--"
-    />
+
+    <div class="row">
+      <FormKit
+        type="button"
+        label="Přidat výrobnu"
+        class="column"
+        @click="aktualni_vyrobny.push({id: new_id}); new_id++"
+      />
+      <FormKit
+        type="button"
+        label="Odebrat výrobnu"
+        class="column"
+        @click="aktualni_vyrobny.pop(); new_id--"
+      />
+    </div>
 
     <pre wrap>{{ value }}</pre>
     </FormKit>
 
 </template>
+
+<style>
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+</style>
