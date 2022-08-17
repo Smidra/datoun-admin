@@ -31,6 +31,7 @@ CD projektu každý push vybuildí a ukáže na adrese github pages. https://smi
 * Index (jméno schéma)
   * firmy
 * Token může v databázi všechno. Zatím. Pro testování doporučuji Postman + Meilisearch https://docs.meilisearch.com/learn/cookbooks/postman_collection.html#postman-collection-for-meilisearch
+* Katalog věcí v databázi lze prohlédnout ve velice alfa stádiu na https://smidra.github.io/vyrobky/vue-project/dist/ <-- To jenom abyste nemuseli vždy startovat postmana. 
 
 ```
 {
