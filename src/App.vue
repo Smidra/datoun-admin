@@ -3,7 +3,7 @@ import Vyrobna from './components/Vyrobna.vue'
 import { ref } from 'vue'
 import axios from 'axios'
 
-const new_id = 2
+let new_id = 2
 let aktualni_vyrobny = ref([{id: 1}])
 
 const axios_instance = axios.create({
@@ -78,7 +78,7 @@ function submitHandler (inputData){
       label="Odebrat výrobnu"
       @click="aktualni_vyrobny.pop(); new_id--"
     />
-    
+
     <pre wrap>{{ value }}</pre>
     </FormKit>
 
