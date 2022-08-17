@@ -21,7 +21,7 @@ git cloe this repo
 npm install
 npm run dev
 ```
-CD projektu každý push vybuildí a ukáže na adrese github pages.
+CD projektu každý push vybuildí a ukáže na adrese github pages. https://smidra.github.io/vyrobky-admin/
 
 ## Databáze
 * Endpoint
