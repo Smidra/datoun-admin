@@ -34,7 +34,7 @@ jobs:
     - run: echo hello > path/to/artifact/world.txt
     - uses: actions/upload-artifact@v3
       with:
-        name: my-artifact
+        name: github-pages
         path: path/to/artifact/world.txt
 
   # Deploy job
