@@ -1,0 +1,11 @@
+        Zařídit odeslání JSONu do databáze
+        Zařídit přidávání a odebírání výroben pomocí plus tlačítka.
+Jak fungují ty CSSka?
+Jak se budou přidávat ikonky  
+Jak se budou přidávat kategorie?
+Jak se budu vlastně třídit a zobrazovat kategorie?
+
+Ověřování během psaní.
+Tato firma už v databázi je.
+ID firem jsou nyní sekundy epochy - to je dirty řešení - nastavil jsem ID jako sortable atribut 
+- lze si vzít nejvyšší požité, ale i při tom může dojít ke kolizi
