@@ -5,10 +5,10 @@ Vyvíjím ve Vue 3 + Formkit + Axios
 ## TODO
 * [x] Zařídit odeslání JSONu do databáze
 * [x] Zařídit přidávání a odebírání výroben pomocí plus tlačítka.
+* [x] Pro jednu výrobnu musí být možno přidat libovolně kategorií
 * [ ] Potvrdit uživateli odeslání do databáze.
 * [ ] Základně nastylovat aby to trošičku vypadalo.
 * [ ] Jak se budou přidávat ikonky?
-* [ ] Pro jednu výrobnu musí být možno přidat libovolně kategorií
 * [ ] Validace polí na frontendu + validace polí na backendu (jasně definovat požadavky na JSON)
 * [ ] Jak přesně do databáze přidávat obec - Geotag? Jmono obce, poštovní adresa? Asi by se hodilo našeptávání...
 * [ ] Našeptávání -> Tato firma už v databázi je.
