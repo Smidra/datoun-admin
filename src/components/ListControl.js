@@ -1,7 +1,15 @@
-export function add_to_list(vyrobny){
-  vyrobny.push({id: vyrobny.length+1 });
+// Funkce pro odebirani a pridavani do listuu jsonuu napr. { id: 11 }
+// Vyuzito pro pridavani kategorii a vyroben
+export function add_to_list(my_list){
+  my_list.push({id: my_list.length+1 });
 }
 
-export function remove_from_list(vyrobny){
-  vyrobny.pop();
+// Nelze odebrat posledni vec z listu
+// (Vzdy musi byt alespon jedna vyrobna co vyrabi alespon jednu kategorii zbozi.)
+export function remove_from_list(my_list){
+  if(my_list.length == 1){
+    pass
+  }else{
+    my_list.pop();
+  }
 }
