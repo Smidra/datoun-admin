@@ -14,7 +14,14 @@ const axios_instance = axios.create({
 });
 
 function submitHandler (inputData){
-  axios_instance.post('/indexes/firmy/documents', inputData).then(response => console.log(response))
+  axios_instance.post('/indexes/firmy/documents', inputData)
+  .then(function (response) {
+    console.log(response);
+    location.reload();
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 }
 
 // Pridavani a odebirani vyroben
