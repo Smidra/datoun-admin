@@ -14,8 +14,10 @@ Preview katalogu na testování:
 * [x] Zařídit odeslání JSONu do databáze
 * [x] Zařídit přidávání a odebírání výroben pomocí plus tlačítka.
 * [x] Pro jednu výrobnu musí být možno přidat libovolně kategorií
-* [ ] Potvrdit uživateli odeslání do databáze.
+* [x] Potvrdit uživateli odeslání do databáze.
+* [ ] Přidat do formuláře checkbox "Firma stále funguje?"
 * [ ] Základně nastylovat aby to trošičku vypadalo.
+* [ ] Ověřit na backendu, která pole jsou prohledávací (aby tam třeba byli aliasy...)
 * [ ] Jak se budou přidávat ikonky?
 * [ ] Validace polí na frontendu + validace polí na backendu (jasně definovat požadavky na JSON)
 * [ ] Jak přesně do databáze přidávat obec - Geotag? Jmono obce, poštovní adresa? Asi by se hodilo našeptávání...
