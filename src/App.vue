@@ -1,10 +1,8 @@
 <script setup>
 import Vyrobna from './components/Vyrobna.vue'
+import { add_to_list , remove_from_list } from './components/ListControl.js'
 import { ref } from 'vue'
 import axios from 'axios'
-
-let new_id = 2
-let aktualni_vyrobny = ref([{id: 1}])
 
 const axios_instance = axios.create({
   baseURL: 'https://wiki.smid.io/',
@@ -17,6 +15,9 @@ const axios_instance = axios.create({
 function submitHandler (inputData){
   axios_instance.post('/indexes/firmy/documents', inputData).then(response => console.log(response))
 }
+
+// Pridavani a odebirani vyroben
+let aktualni_vyrobny = ref([{id: 1}])
 
 </script>
 
@@ -36,7 +37,7 @@ function submitHandler (inputData){
       type="hidden"
       :value='Date.now()'
     />
-
+    <!-- Jmeno firmy -->
     <FormKit 
       type="text"
       label="Jméno firmy"
@@ -44,6 +45,7 @@ function submitHandler (inputData){
       placeholder=""
       help="Přidej pouze firmu, která zatím není v databázi."
     />
+    <!-- Popisek firmy -->
     <FormKit
       type="textarea"
       label="Popisek firmy"
@@ -52,6 +54,7 @@ function submitHandler (inputData){
       placeholder=""
       help="Krátký motivační popisek většinou najdete na stránkách firmy."
     />
+    <!-- Eshop firmy -->
     <FormKit
       type="url"
       label="E-shop firmy"
@@ -71,19 +74,18 @@ function submitHandler (inputData){
       <Vyrobna v-for="item in aktualni_vyrobny" :key="item.id" :factory_number="item.id" />
     </FormKit>
 
-
     <div class="row">
       <FormKit
         type="button"
         label="Přidat výrobnu"
         class="column"
-        @click="aktualni_vyrobny.push({id: new_id}); new_id++"
+        @click="add_to_list(aktualni_vyrobny)"
       />
       <FormKit
         type="button"
         label="Odebrat výrobnu"
         class="column"
-        @click="aktualni_vyrobny.pop(); new_id--"
+        @click="remove_from_list(aktualni_vyrobny)"
       />
     </div>
 

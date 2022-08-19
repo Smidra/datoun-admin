@@ -1,5 +1,6 @@
 <script setup>
 import Kategorie from './Kategorie.vue';
+import { add_to_list , remove_from_list } from './ListControl.js'
 import { ref } from 'vue'
 
 defineProps({
@@ -9,8 +10,7 @@ defineProps({
   }
 })
 
-let pocet_kategorii = ref(2)
-let pole_kategorii = ref([ 1 ])
+let pole_kategorii = ref([{id: 1}])
 
 </script>
 
@@ -56,14 +56,14 @@ let pole_kategorii = ref([ 1 ])
     label="➕"
     class="column"
     style="background-color:lightpink;"
-    @click="pole_kategorii.push(pocet_kategorii); pocet_kategorii++"
+    @click="add_to_list(pole_kategorii)"
   />
   <FormKit
     type="button"
     label="➖"
     class="column"
     style="background-color:lightpink;"
-    @click="pole_kategorii.pop(); pocet_kategorii--"
+    @click="remove_from_list(pole_kategorii)"
   />
   </div>
 
