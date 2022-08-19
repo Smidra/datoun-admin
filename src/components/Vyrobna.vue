@@ -1,5 +1,5 @@
 <script setup>
-import Kategorie from './Kategorie.vue';
+import TextBox from './TextBox.vue';
 import { add_to_list , remove_from_list } from './ListControl.js'
 import { ref } from 'vue'
 
@@ -47,7 +47,7 @@ let pole_kategorii = ref([{id: 1}])
     type="list"
     name="kategorie"
   >
-    <Kategorie v-for="item in pole_kategorii" :key=item :cat_number="item" />
+    <TextBox v-for="item in pole_kategorii" :key=item :number="item" />
   </FormKit>
 
   <div class="row">

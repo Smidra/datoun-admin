@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  cat_number: {
+  number: {
     type: Number,
     required: true
   }
