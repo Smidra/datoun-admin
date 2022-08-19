@@ -4,6 +4,7 @@ import TextBox from './components/TextBox.vue'
 import { add_to_list , remove_from_list, remove_from_list_zero } from './components/ListControl.js'
 import { ref } from 'vue'
 import axios from 'axios'
+import swal from 'sweetalert';
 
 const axios_instance = axios.create({
   baseURL: 'https://wiki.smid.io/',
@@ -17,10 +18,13 @@ function submitHandler (inputData){
   axios_instance.post('/indexes/firmy/documents', inputData)
   .then(function (response) {
     console.log(response);
-    location.reload();
+    swal("Skvělé!", "Firma přidána do databáze.", "success")
+    .then(() => { location.reload() })
   })
   .catch(function (error) {
     console.log(error);
+    swal("Ajaj!", "Firma nebyla přidána!", "error")
+    .then(() => { location.reload() });
   });
 }
 
