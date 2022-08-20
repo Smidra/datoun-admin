@@ -17,12 +17,13 @@ Preview katalogu na testování:
 * [x] Potvrdit uživateli odeslání do databáze.
 * [x] Přidat do formuláře checkbox "Firma stále funguje?"
 * [x] Ověřit na backendu, která pole jsou prohledávací (aby tam třeba byli aliasy...)
-* [ ] Validace polí na frontendu
-* [ ] Základně nastylovat aby to trošičku vypadalo.
+* [x] Validace polí na frontendu
+* [ ] Validace by měla házet české kidy
+* [ ] Nastylovat to, aby to vypadalo.
 * [ ] Jak se budou přidávat ikonky?
 * [ ] Jak přesně do databáze přidávat obec - Geotag? Jmono obce, poštovní adresa? Asi by se hodilo našeptávání...
-* [ ] Našeptávání -> Tato firma už v databázi je.
 * [ ] Našeptávání -> Měli jste na myslí tuto kategorii?
+* [ ] Našeptávání -> Tato firma už v databázi je.
 * [ ] ID firem jsou nyní sekundy epochy - to je dirty řešení - nastavil jsem ID jako sortable atribut - lze si vzít nejvyšší použité, ale i při tom může dojít ke kolizi
 * [ ] Při vyhledání "false" se najdou všechny firmy, které mají nastavený flag, že nejsou zaniklé.
 * [x] validace polí na backendu (jasně definovat požadavky na JSON) není možná??!! Uf.
@@ -30,7 +31,7 @@ Preview katalogu na testování:
 
 ## Project setup
 ```
-git cloe this repo
+git clone "this repo"
 npm install
 npm run dev
 ```
