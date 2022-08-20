@@ -6,6 +6,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 import swal from 'sweetalert';
 
+// Odesilani JSONu do databaze
 const axios_instance = axios.create({
   baseURL: 'https://wiki.smid.io/',
   timeout: 1000,
@@ -43,6 +44,7 @@ let pole_aliasu = ref([])
     submit-label="Poslat"
     #default="{ value }"
     @submit="submitHandler"
+    :config="{ validationVisibility: 'dirty' }"
   >
     <!-- ID -->
     <FormKit
@@ -57,6 +59,7 @@ let pole_aliasu = ref([])
       name="jmeno_firmy"
       placeholder=""
       help="Přidej pouze firmu, která zatím není v databázi."
+      validation="required|length:2,100"
     />
 
     <!-- Pridavani Aliasuu +- -->
@@ -92,20 +95,20 @@ let pole_aliasu = ref([])
       type="textarea"
       label="Popisek firmy"
       name="popisek_firmy"
-      rows="10"
+      rows="8"
       placeholder=""
       help="Krátký motivační popisek většinou najdete na stránkách firmy."
+      validation="length:0,10000"
     />
 
     <!-- Eshop firmy -->
     <FormKit
       type="url"
-      label="E-shop firmy"
+      label="E-shop firmy (zkopírujte)"
       name="eshop"
       placeholder=""
+      help="Člověk musí mít možnost si od firmy něco koupit (B2C)."
       validation="required|url"
-      help="Přípustné jsou pouze firmy B2C"
-      @input="handler"
     />
 
     <!-- Je zaniklá? -->
@@ -115,6 +118,7 @@ let pole_aliasu = ref([])
       help="Zašrkněte pokud firma zkrachovala nebo přestala vyrábět v Česku."
       name="zanikla"
       value=false
+      validation="required"
     />
 
     <!-- Přidat upload loga firmy -->

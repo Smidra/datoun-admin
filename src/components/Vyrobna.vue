@@ -33,9 +33,11 @@ let pole_kategorii = ref([{id: 1}])
       type="textarea"
       label="Specifikace výrobny"
       name="popisek_vyroby"
-      rows="5"
+      rows="4"
       placeholder=""
+      value="V této výrobně se vyrábí celý sortiment dané firmy."
       help="Co nejpřesnějši popište, co se v této výrobně/továrně vyrábí."
+      validation="length:10,10000"
     />
   <!-- Jaké kategorie výrobků se ve výrobně vyrábí -->
   <label class="formkit-label">Kategorie</label>
