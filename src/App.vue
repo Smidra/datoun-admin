@@ -70,7 +70,6 @@ let pole_aliasu = ref([])
     >
       <TextBox v-for="item in pole_aliasu" :key=item.id :number="item.id" />
     </FormKit>
-
     <div class="row">
     <FormKit
       type="button"
@@ -87,7 +86,6 @@ let pole_aliasu = ref([])
       @click="remove_from_list_zero(pole_aliasu)"
     />
     </div>
-
 
     <!-- Popisek firmy -->
     <FormKit
@@ -108,6 +106,16 @@ let pole_aliasu = ref([])
       help="Přípustné jsou pouze firmy B2C"
       @input="handler"
     />
+    <!-- Je zaniklá? -->
+    <FormKit
+      type="checkbox"
+      label="Firma je zaniklá?"
+      help="Zašrkněte pokud firma přestala vyrábět v Česku/zkrachovala."
+      name="zanikla"
+      value=false
+      validation-visibility="dirty"
+    />
+
     <!-- Přidat upload loga firmy -->
     <!-- Pridavani vyroben +- -->
     <FormKit
