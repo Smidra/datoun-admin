@@ -49,7 +49,6 @@ let pole_kategorii = ref([{id: 1}])
   >
     <TextBox v-for="item in pole_kategorii" :key=item :number="item" />
   </FormKit>
-
   <div class="row">
   <FormKit
     type="button"

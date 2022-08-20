@@ -96,6 +96,7 @@ let pole_aliasu = ref([])
       placeholder=""
       help="Krátký motivační popisek většinou najdete na stránkách firmy."
     />
+
     <!-- Eshop firmy -->
     <FormKit
       type="url"
@@ -106,6 +107,7 @@ let pole_aliasu = ref([])
       help="Přípustné jsou pouze firmy B2C"
       @input="handler"
     />
+
     <!-- Je zaniklá? -->
     <FormKit
       type="checkbox"
