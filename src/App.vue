@@ -109,11 +109,10 @@ let pole_aliasu = ref([])
     <!-- Je zaniklá? -->
     <FormKit
       type="checkbox"
-      label="Firma je zaniklá?"
-      help="Zašrkněte pokud firma přestala vyrábět v Česku/zkrachovala."
+      label="Firma je zaniklá"
+      help="Zašrkněte pokud firma zkrachovala nebo přestala vyrábět v Česku."
       name="zanikla"
       value=false
-      validation-visibility="dirty"
     />
 
     <!-- Přidat upload loga firmy -->
