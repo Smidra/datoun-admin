@@ -16,7 +16,7 @@ defineProps({
     type="text"
     label=""
     help="" 
-    validation="length:2,100"
+    validation="required|length:2,1000"
 />
 
 </template>

@@ -27,6 +27,7 @@ let pole_kategorii = ref([{id: 1}])
     name="lokalita"
     placeholder=""
     help="" 
+    validation="required|length:2,1000"
   />
   <!-- Popisek -->
   <FormKit
@@ -37,7 +38,7 @@ let pole_kategorii = ref([{id: 1}])
       placeholder=""
       value="V této výrobně se vyrábí celý sortiment dané firmy."
       help="Co nejpřesnějši popište, co se v této výrobně/továrně vyrábí."
-      validation="length:10,10000"
+      validation="required|length:10,10000"
     />
   <!-- Jaké kategorie výrobků se ve výrobně vyrábí -->
   <label class="formkit-label">Kategorie</label>

@@ -98,7 +98,7 @@ let pole_aliasu = ref([])
       rows="8"
       placeholder=""
       help="Krátký motivační popisek většinou najdete na stránkách firmy."
-      validation="length:0,10000"
+      validation="required|length:10,10000"
     />
 
     <!-- Eshop firmy -->
