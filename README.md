@@ -6,7 +6,7 @@ Tato Vue 3 aplikace je od úpravy (především insertu) dat v Meilisearch datab
 Vyvíjím ve Vue 3 + Formkit + Axios
 
 Live build tohoto repozitáře:
-* https://smidra.github.io/vyrobky-admin/
+* https://datoun.cz
 * https://github.com/Smidra/vyrobky-admin (REPO)
 
 Preview katalogu na testování:

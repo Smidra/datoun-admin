@@ -1,9 +1,9 @@
 {
-  "name": "formular-beta",
-  "version": "0.0.0",
+  "name": "Datoun.cz",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/vyrobky-admin/",
+    "build": "vite build --base=/",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
