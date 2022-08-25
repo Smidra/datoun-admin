@@ -1,17 +1,17 @@
-# DATOUN
+# DATOUN admin
 DAtabáze TOváren U Nás
 
 ## administrační rozhraní
-Tato Vue 3 aplikace je od úpravy (především insertu) dat v Meilisearch databázi českých výrobků.
+Tato Vue 3 aplikace je od úpravy (zatím především insertu) dat v Meilisearch databázi českých výrobků.
 Vyvíjím ve Vue 3 + Formkit + Axios
 
 Live build tohoto repozitáře:
-* https://datoun.cz
-* https://github.com/Smidra/vyrobky-admin (REPO)
+* https://admin.datoun.cz
+* https://github.com/Smidra/datoun-admin (REPO)
 
 Preview katalogu na testování:
-* https://smidra.github.io/vyrobky-katalog/dist/
-* https://github.com/Smidra/vyrobky-katalog (REPO)
+* https://smidra.github.io/datoun-katalog/dist/
+* https://github.com/Smidra/datoun-katalog (REPO)
 
 ## TODO
 * [x] Zařídit odeslání JSONu do databáze
