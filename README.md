@@ -21,26 +21,32 @@ Preview katalogu na testování:
 * [x] Přidat do formuláře checkbox "Firma stále funguje?"
 * [x] Ověřit na backendu, která pole jsou prohledávací (aby tam třeba byli aliasy...)
 * [x] Validace polí na frontendu
+<<<<<<< HEAD
 * [ ] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
 * [ ] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
+=======
+* [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
+>>>>>>> a82a117002f8373bd5ff8c9ba9af3d9cb8d16b46
 * [ ] Validace by měla házet české kidy
 * [ ] Nastylovat to, aby to vypadalo.
+* [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
+* [ ] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
 * [ ] Jak se budou přidávat ikonky firem? Dám tam pole na URL? Nšjaké inteligentní našeptávání? Automaticky se dohledají?
-* [ ] Jak přesně do databáze přidávat obec - Geotag? Jmono obce, poštovní adresa? Asi by se hodilo našeptávání...
-* [ ] Našeptávání -> Měli jste na myslí tuto kategorii --- Důležitá funkce ---
-* [ ] Našeptávání -> Tato firma už v databázi je. --- Důležitá funkce ---
+* [ ] Jak přesně do databáze přidávat u továrny "obec" - Geotag? Jméno obce, poštovní adresa? Asi by se hodilo našeptávání...
+* [ ] Našeptávání -> Měli jste na myslí tuto kategorii **--- Důležitá funkce ---**
+* [ ] Našeptávání -> Tato firma už v databázi je. **--- Důležitá funkce ---**
 * [ ] ID firem jsou nyní sekundy epochy - to je dirty řešení - nastavil jsem ID jako sortable atribut - lze si vzít nejvyšší použité, ale i při tom může dojít ke kolizi
-* [ ] Při vyhledání "false" se najdou všechny firmy, které mají nastavený flag, že nejsou zaniklé.
+* [ ] Při vyhledání "false" se najdou všechny firmy, které mají nastavený flag, že nejsou zaniklé. (opravit v searchable attributes v meilisearch až budou pole v JSONU daná na 100 %)
 * [x] validace polí na backendu (jasně definovat požadavky na JSON) není možná??!! Uf.
 
 
 ## Project setup
 ```
-git clone git@github.com:Smidra/vyrobky-admin.git
+git clone git@github.com:Smidra/datoun-admin.git
 npm install
 npm run dev
 ```
-CD projektu každý push vybuildí a deployne na adrese github pages. https://smidra.github.io/vyrobky-admin/
+CD projektu každý push vybuildí a deployne na adrese admin.datoun.cz
 
 ## Databáze
 * Endpoint
