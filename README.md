@@ -21,12 +21,9 @@ Preview katalogu na testování:
 * [x] Přidat do formuláře checkbox "Firma stále funguje?"
 * [x] Ověřit na backendu, která pole jsou prohledávací (aby tam třeba byli aliasy...)
 * [x] Validace polí na frontendu
-<<<<<<< HEAD
 * [ ] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
 * [ ] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
-=======
 * [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
->>>>>>> a82a117002f8373bd5ff8c9ba9af3d9cb8d16b46
 * [ ] Validace by měla házet české kidy
 * [ ] Nastylovat to, aby to vypadalo.
 * [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
