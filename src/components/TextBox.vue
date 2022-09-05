@@ -1,11 +1,16 @@
 <script setup>
-defineProps({
-  number: {
-    type: Number,
-    required: true
-  }
-})
+  import { list } from '@formkit/i18n';
+  import { remove_from_list_by_id } from './ListControl.js'
 
+  defineProps({
+    number: {
+      type: Number,
+      required: true
+    },
+    arrayOfTextfields: {
+      type: Array,
+    }
+  })
 </script>
 
 <template>
@@ -15,8 +20,16 @@ defineProps({
 <FormKit
     type="text"
     label=""
-    help="" 
+    help=""
     validation="required|length:2,1000"
+/>
+ <!-- ➖ -->
+<FormKit
+  type="button"
+  label="➖"
+  class="column"
+  style="background-color:pink;"
+  @click="remove_from_list_by_id(arrayOfTextfields, number)"
 />
 
 </template>

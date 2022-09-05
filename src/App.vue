@@ -1,7 +1,7 @@
 <script setup>
 import Vyrobna from './components/Vyrobna.vue'
-import TextBox from './components/TextBox.vue'
-import { add_to_list , remove_from_list, remove_from_list_zero } from './components/ListControl.js'
+import BoxAdder from './components/BoxAdder.vue'
+import { add_to_list , remove_from_list } from './components/ListControl.js'
 import { ref } from 'vue'
 import axios from 'axios'
 import swal from 'sweetalert';
@@ -30,8 +30,7 @@ function submitHandler (inputData){
 }
 
 // Pridavani a odebirani vyroben
-let aktualni_vyrobny = ref([{id: 1}])
-let pole_aliasu = ref([])
+let aktualni_vyrobny = ref( [ 1 ] )
 
 </script>
 
@@ -63,32 +62,12 @@ let pole_aliasu = ref([])
     />
 
     <!-- Pridavani Aliasuu +- -->
-    <label class="formkit-label">Aliasy</label>
-    <label class="formkit-help" style="padding-bottom:10pt;">Značky pod kterými firma vyrábí, aliasy.</label>
-    <label class="formkit-label"></label>
-    <FormKit
-      v-model="list"
-      type="list"
+    <BoxAdder
       name="aliasy"
-    >
-      <TextBox v-for="item in pole_aliasu" :key=item.id :number="item.id" />
-    </FormKit>
-    <div class="row">
-    <FormKit
-      type="button"
-      label="➕"
-      class="column"
-      style="background-color:lightpink;"
-      @click="add_to_list(pole_aliasu)"
+      title="Aliasy"
+      description="Značky pod kterými firma vyrábí, aliasy."
+      minimumBoxes= 1
     />
-    <FormKit
-      type="button"
-      label="➖"
-      class="column"
-      style="background-color:lightpink;"
-      @click="remove_from_list_zero(pole_aliasu)"
-    />
-    </div>
 
     <!-- Popisek firmy -->
     <FormKit
@@ -128,7 +107,7 @@ let pole_aliasu = ref([])
       type="list"
       name="vyrobny"
     >
-      <Vyrobna v-for="item in aktualni_vyrobny" :key="item.id" :factory_number="item.id" />
+      <Vyrobna v-for="item in aktualni_vyrobny" :key="item" :factory_number="item" />
     </FormKit>
     <div class="row">
       <FormKit

@@ -1,7 +1,5 @@
 <script setup>
-import TextBox from './TextBox.vue';
-import { add_to_list , remove_from_list } from './ListControl.js'
-import { ref } from 'vue'
+import BoxAdder from './BoxAdder.vue';
 
 defineProps({
   factory_number: {
@@ -9,8 +7,6 @@ defineProps({
     required: true
   }
 })
-
-let pole_kategorii = ref([{id: 1}])
 
 </script>
 
@@ -35,39 +31,16 @@ let pole_kategorii = ref([{id: 1}])
       label="Specifikace výrobny"
       name="popisek_vyroby"
       rows="4"
-      placeholder=""
-      value="V této výrobně se vyrábí celý sortiment dané firmy."
+      placeholder="V této výrobně se vyrábí celý sortiment dané firmy."
       help="Co nejpřesnějši popište, co se v této výrobně/továrně vyrábí."
       validation="required|length:10,10000"
-    />
-  <!-- Jaké kategorie výrobků se ve výrobně vyrábí -->
-  <label class="formkit-label">Kategorie</label>
-  <label class="formkit-help" style="padding-bottom:10pt;">Co se ve výrobně vyrábí přesně za typy produktů.</label>
-  <label class="formkit-label"></label>
-
-  <FormKit
-    v-model="list"
-    type="list"
+  />
+  <BoxAdder
     name="kategorie"
-  >
-    <TextBox v-for="item in pole_kategorii" :key=item :number="item" />
-  </FormKit>
-  <div class="row">
-  <FormKit
-    type="button"
-    label="➕"
-    class="column"
-    style="background-color:lightpink;"
-    @click="add_to_list(pole_kategorii)"
+    title="Kategorie"
+    description="Co se ve výrobně vyrábí přesně za typy produktů."
+    minimumBoxes= 1
   />
-  <FormKit
-    type="button"
-    label="➖"
-    class="column"
-    style="background-color:lightpink;"
-    @click="remove_from_list(pole_kategorii)"
-  />
-  </div>
 
 </FormKit>
 
