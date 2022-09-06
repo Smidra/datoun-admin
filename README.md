@@ -24,7 +24,7 @@ Preview katalogu na testování:
 * [x] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
 * [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
 * [x] Validace by měla házet české kidy
-* [ ] **Našeptávání -> Měli jste na myslí tuto kategorii?**
+* [ ] **Našeptávání -> Měli jste na mysli tuto kategorii?**
 * [ ] **Nastylovat to, aby to vypadalo pěkně.**
 * [ ] **Jak přesně do databáze přidávat u továrny "obec" - Geotag? Jméno obce, poštovní adresa? Určitě to chce našeptávání.**
 * [ ] Jak se budou přidávat ikonky firem? Dám tam pole na URL? Nějaké inteligentní našeptávání? Automaticky se dohledají?
