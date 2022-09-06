@@ -25,6 +25,10 @@
     help=""
     :placeholder=number
     validation="required|length:2,1000"
+    :validation-messages="{
+        required: 'Povinné pole.',
+        length: 'Délka musí být mezi 2 a 1000 znaků.',
+    }"
 />
  <!-- ➖ -->
 <FormKit

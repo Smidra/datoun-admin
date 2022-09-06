@@ -23,6 +23,10 @@ defineProps({
     placeholder=""
     help="" 
     validation="required|length:2,1000"
+    :validation-messages="{
+        required: 'Obec je povinné pole.',
+        length: 'Jméno obce musí být dlouhé 2 až 1000 znaků.',
+    }"
   />
   <!-- Popisek -->
   <FormKit
@@ -33,6 +37,10 @@ defineProps({
       placeholder="V této výrobně se vyrábí celý sortiment dané firmy."
       help="Co nejpřesnějši popište, co se v této výrobně/továrně vyrábí."
       validation="required|length:10,10000"
+      :validation-messages="{
+        required: 'Specifikace výrobny je povinné pole.',
+        length: 'Specifikace výrobny musí být dlouhá 10 až 10000 znaků.',
+      }"
   />
   <!-- Kategorie -->
   <BoxAdder

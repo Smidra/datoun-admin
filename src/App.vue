@@ -44,6 +44,7 @@ let aktualni_vyrobny = ref( [ 1 ] )
     #default="{ value }"
     @submit="submitHandler"
     :config="{ validationVisibility: 'dirty' }"
+    incomplete-message="Nějaké pole nebylo vyplněno správně..."
   >
     <!-- ID -->
     <FormKit
@@ -59,6 +60,10 @@ let aktualni_vyrobny = ref( [ 1 ] )
       placeholder=""
       help="Přidej pouze firmu, která zatím není v databázi."
       validation="required|length:2,100"
+      :validation-messages="{
+        required: 'Jméno firmy je povinné pole.',
+        length: 'Jméno musí být dlouhé 2 až 100 znaků.',
+      }"
     />
 
     <!-- Pridavani Aliasuu +- -->
@@ -78,6 +83,10 @@ let aktualni_vyrobny = ref( [ 1 ] )
       placeholder=""
       help="Krátký motivační popisek většinou najdete na stránkách firmy."
       validation="required|length:10,10000"
+      :validation-messages="{
+        required: 'Popisek firmy je povinné pole.',
+        length: 'Popisek musí být dlouhé 10 až 10000 znaků.',
+      }"
     />
 
     <!-- Eshop firmy -->
@@ -88,6 +97,10 @@ let aktualni_vyrobny = ref( [ 1 ] )
       placeholder=""
       help="Člověk musí mít možnost si od firmy něco koupit (B2C)."
       validation="required|url"
+      :validation-messages="{
+        required: 'Adresa eshopu firmy je povinné pole.',
+        url: 'Adresa eshopu musí být platná URL.',
+      }"
     />
 
     <!-- Je zaniklá? -->
@@ -98,6 +111,9 @@ let aktualni_vyrobny = ref( [ 1 ] )
       name="zanikla"
       value=false
       validation="required"
+      :validation-messages="{
+        required: 'Musíte označit jestli je firma zaniklá, nebo ne.',
+      }"
     />
 
     <!-- Přidat upload loga firmy -->
