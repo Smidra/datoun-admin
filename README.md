@@ -10,7 +10,7 @@ Live build tohoto repozitáře:
 * https://github.com/Smidra/datoun-admin (REPO)
 
 Preview katalogu na testování:
-* https://smidra.github.io/datoun-katalog/dist/
+* https://datoun.cz
 * https://github.com/Smidra/datoun-katalog (REPO)
 
 ## TODO
