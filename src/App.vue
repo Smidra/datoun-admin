@@ -66,7 +66,7 @@ let aktualni_vyrobny = ref( [ 1 ] )
       name="aliasy"
       title="Aliasy"
       description="Značky pod kterými firma vyrábí, aliasy."
-      minimumBoxes= 1
+      minimumBoxes= 0
     />
 
     <!-- Popisek firmy -->

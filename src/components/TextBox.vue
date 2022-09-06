@@ -9,18 +9,22 @@
     },
     arrayOfTextfields: {
       type: Array,
+      required:true
+    },
+    minimum:{
+      type: Number,
+      required:true
     }
   })
 </script>
 
 <template>
-<!-- <h2>--- Kategorie #{{ cat_number }} ---</h2> -->
-
 <!-- Jaké kategorie výrobků se ve výrobně vyrábí -->
 <FormKit
     type="text"
     label=""
     help=""
+    :placeholder=number
     validation="required|length:2,1000"
 />
  <!-- ➖ -->
@@ -29,7 +33,7 @@
   label="➖"
   class="column"
   style="background-color:pink;"
-  @click="remove_from_list_by_id(arrayOfTextfields, number)"
+  @click="remove_from_list_by_id(arrayOfTextfields, number, minimum)"
 />
 
 </template>

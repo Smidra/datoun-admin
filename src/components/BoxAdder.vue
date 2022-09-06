@@ -22,16 +22,26 @@
       }
     })
 
-    let arrayOfTextfields = ref([ 1 ]);
+    // Uprav array aby v nem bylo alespon minimum polozek.
+    function initialise(minimumBoxes, arrayOfTextfields){
+      for( let i=0; i<minimumBoxes; i++){
+        arrayOfTextfields.push(i+1)
+      }
+    }
+
+    let arrayOfTextfields = ref([ ]);
+
 </script>
 
 <template>
+    {{ initialise(minimumBoxes, arrayOfTextfields) }}
+
     <label class="formkit-label">{{ title }}</label>
     <label class="formkit-help" style="padding-bottom:10pt;">{{ description }}</label>
     <label class="formkit-label"></label>
 
     <FormKit v-model="list" type="list" :name=name>
-        <TextBox v-for="item in arrayOfTextfields" :key=item :number=item :arrayOfTextfields=arrayOfTextfields />
+        <TextBox v-for="item in arrayOfTextfields" :key=item :number=item :arrayOfTextfields=arrayOfTextfields :minimum=minimumBoxes />
     </FormKit>
 
     <div class="row">

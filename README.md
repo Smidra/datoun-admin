@@ -21,13 +21,10 @@ Preview katalogu na testování:
 * [x] Přidat do formuláře checkbox "Firma stále funguje?"
 * [x] Ověřit na backendu, která pole jsou prohledávací (aby tam třeba byli aliasy...)
 * [x] Validace polí na frontendu
-* [ ] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
-* [ ] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
+* [x] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
 * [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
 * [ ] Validace by měla házet české kidy
 * [ ] Nastylovat to, aby to vypadalo.
-* [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
-* [ ] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
 * [ ] Jak se budou přidávat ikonky firem? Dám tam pole na URL? Nšjaké inteligentní našeptávání? Automaticky se dohledají?
 * [ ] Jak přesně do databáze přidávat u továrny "obec" - Geotag? Jméno obce, poštovní adresa? Asi by se hodilo našeptávání...
 * [ ] Našeptávání -> Měli jste na myslí tuto kategorii **--- Důležitá funkce ---**
