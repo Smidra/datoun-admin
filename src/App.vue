@@ -101,6 +101,8 @@ let aktualni_vyrobny = ref( [ 1 ] )
     />
 
     <!-- Přidat upload loga firmy -->
+    <!-- TBA -->
+
     <!-- Pridavani vyroben +- -->
     <FormKit
       v-model="list"

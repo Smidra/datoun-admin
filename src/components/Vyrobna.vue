@@ -12,7 +12,6 @@ defineProps({
 
 <template>
 <label class="formkit-label" style="font-size: large;">➔ Výrobna #{{ factory_number }} </label>
-
 <FormKit
   type="group">
 
@@ -35,6 +34,7 @@ defineProps({
       help="Co nejpřesnějši popište, co se v této výrobně/továrně vyrábí."
       validation="required|length:10,10000"
   />
+  <!-- Kategorie -->
   <BoxAdder
     name="kategorie"
     title="Kategorie"
@@ -43,10 +43,7 @@ defineProps({
   />
 
 </FormKit>
-
 </template>
-
-
 
 <style>
 .row {

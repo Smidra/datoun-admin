@@ -52,24 +52,7 @@
         style="background-color:lightpink;"
         @click="add_to_list(arrayOfTextfields)"
     />
-    <!-- <FormKit
-        type="button"
-        label="➖"
-        class="column"
-        style="background-color:lightpink;"
-        @click="remove_from_list(arrayOfTextfields)"
-    /> -->
-    </div>
 
-    <!-- Jaké kategorie výrobků se ve výrobně vyrábí -->
-    <!-- <FormKit
-        type="text"
-        label=""
-        help="" 
-        validation="required|length:2,1000"
-    />
-    <p>
-    <a href="">Odebrat</a>
-    </p> -->
+    </div>
     
 </template>    

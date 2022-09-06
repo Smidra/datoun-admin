@@ -1,5 +1,4 @@
 <script setup>
-  import { list } from '@formkit/i18n';
   import { remove_from_list_by_id } from './ListControl.js'
 
   defineProps({

@@ -10,7 +10,6 @@ export function add_to_list(my_list){
 }
 
 // Nelze odebrat posledni vec z listu
-// (Vzdy musi byt alespon jedna vyrobna co vyrabi alespon jednu kategorii zbozi.)
 export function remove_from_list(my_list){
   if(my_list.length == 1){
     // pass
