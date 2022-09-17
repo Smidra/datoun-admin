@@ -24,10 +24,10 @@ Preview katalogu na testování:
 * [x] Doimplementovat do BoxAdderu props minimální (a zároveň startovní) počet políček
 * [x] Validace polí na frontendu povolí Obec bez názvu a prázdnou kategorii
 * [x] Validace by měla házet české kidy
-* [ ] **Našeptávání -> Měli jste na mysli tuto kategorii?**
-* [ ] **Nastylovat to, aby to vypadalo pěkně.**
-* [ ] **Jak přesně do databáze přidávat u továrny "obec" - Geotag? Jméno obce, poštovní adresa? Určitě to chce našeptávání.**
-* [ ] Jak se budou přidávat ikonky firem? Dám tam pole na URL? Nějaké inteligentní našeptávání? Automaticky se dohledají?
+* [ ] Tony **Našeptávání -> Měli jste na mysli tuto kategorii?** Kde sehnat JSON se všemi kategoriemi v databázi nevím - jedinné co mě napadá je stáhnout při načtení přidávací stránky databázi celou, vypreparovat z toho všechny použité kategorie a napovídat z toho...
+* [ ] Tony **Nastylovat to, aby to vypadalo pěkně.**
+* [ ] **Jak přesně do databáze přidávat u továrny "obec" - Geotag? Jméno obce, poštovní adresa? Určitě to chce našeptávání.** TOhle to chce promyslet jak na to.
+* [ ] Jak se budou přidávat ikonky firem? Dám tam pole na URL? Nějaké inteligentní našeptávání? Automaticky se dohledají? Tady vůbec nevím jak se to dělá správně...
 * [ ] ID firem jsou nyní sekundy epochy - to je dirty řešení - nastavil jsem ID jako sortable atribut - lze si vzít nejvyšší použité, ale i při tom může dojít ke kolizi
 * [ ] Při vyhledání "false" se najdou všechny firmy, které mají nastavený flag, že nejsou zaniklé. (opravit v searchable attributes v meilisearch až budou pole v JSONU daná na 100 %)
 * [x] validace polí na backendu (jasně definovat požadavky na JSON) není možná??!! Uf.
