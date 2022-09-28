@@ -31,6 +31,8 @@
 
     let arrayOfTextfields = ref([ ]);
 
+    let list = ref([]);
+
 </script>
 
 <template>
@@ -54,5 +56,5 @@
     />
 
     </div>
-    
-</template>    
+
+</template>

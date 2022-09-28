@@ -1,4 +1,4 @@
-// Funkce pro odebirani a pridavani do listuu jsonuu napr. { id: 11 }
+// Funkce pro odebirani a pridavani do listu jsonu napr. { id: 11 }
 // Vyuzito pro pridavani kategorii a vyroben
 export function add_to_list(my_list){
   let max = Math.max(...my_list)

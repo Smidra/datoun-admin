@@ -21,7 +21,7 @@ defineProps({
     label="Obec"
     name="lokalita"
     placeholder=""
-    help="" 
+    help=""
     validation="required|length:2,1000"
     :validation-messages="{
         required: 'Obec je povinné pole.',
@@ -47,7 +47,7 @@ defineProps({
     name="kategorie"
     title="Kategorie"
     description="Co se ve výrobně vyrábí přesně za typy produktů."
-    minimumBoxes= 1
+    :minimumBoxes="1"
   />
 
 </FormKit>

@@ -30,7 +30,9 @@ function submitHandler (inputData){
 }
 
 // Pridavani a odebirani vyroben
-let aktualni_vyrobny = ref( [ 1 ] )
+let aktualni_vyrobny = ref( [ 1 ] );
+
+let list_vyroben = ref([]);
 
 </script>
 
@@ -53,7 +55,7 @@ let aktualni_vyrobny = ref( [ 1 ] )
       :value='Date.now()'
     />
     <!-- Jmeno firmy -->
-    <FormKit 
+    <FormKit
       type="text"
       label="Jméno firmy"
       name="jmeno_firmy"
@@ -71,7 +73,7 @@ let aktualni_vyrobny = ref( [ 1 ] )
       name="aliasy"
       title="Aliasy"
       description="Značky pod kterými firma vyrábí, aliasy."
-      minimumBoxes= 0
+      :minimumBoxes="0"
     />
 
     <!-- Popisek firmy -->
@@ -121,7 +123,7 @@ let aktualni_vyrobny = ref( [ 1 ] )
 
     <!-- Pridavani vyroben +- -->
     <FormKit
-      v-model="list"
+      v-model="list_vyroben"
       type="list"
       name="vyrobny"
     >
