@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.formkit-wrapper, .formkit-fieldset {
+    max-width: 100% !important;
+}
+
+.simple-section {
+    @apply bg-white p-8 rounded-xl shadow-2xl mb-4;
+}
+
+.formkit-input[disabled] {
+    opacity: 0.3 !important;
+}
