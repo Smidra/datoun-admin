@@ -1,6 +1,6 @@
 <script setup>
     import TextBox from './TextBox.vue';
-    import { add_to_list , remove_from_list } from './ListControl.js'
+    import { add_to_list , remove_from_list } from '../../utils/ListControl.js'
     import { ref } from 'vue'
 
     defineProps({
@@ -43,7 +43,7 @@
     <label class="formkit-label"></label>
 
     <FormKit v-model="list" type="list" :name=name>
-        <TextBox v-for="item in arrayOfTextfields" :key=item :number=item :arrayOfTextfields=arrayOfTextfields :minimum=minimumBoxes />
+        <TextBox v-for="item in arrayOfTextfields" :key=item :number=item :arrayOfTextfields=arrayOfTextfields :minimum=minimumBoxes :removable="arrayOfTextfields.length > 1"/>
     </FormKit>
 
     <div class="row">
