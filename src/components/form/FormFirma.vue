@@ -38,9 +38,15 @@ const formValue = ref({});
     Přidat novou firmu
   </h1>
 
-  <FormKit type="form" submit-label="Poslat" #default="{ value }" v-model="formValue" @submit="submitHandler"
-    :config="{ validationVisibility: 'dirty' }" incomplete-message="Nějaké pole nebylo vyplněno správně...">
-    
+  <FormKit type="form"
+  submit-label=""
+  #default="{ value }"
+  v-model="formValue"
+  @submit="submitHandler"
+  :config="{
+    validationVisibility: 'dirty',
+  }" incomplete-message="Nějaké pole nebylo vyplněno správně...">
+
     <section class="simple-section">
       <!-- ID -->
       <FormKit name="id" type="hidden" :value='Date.now()' />
@@ -52,12 +58,13 @@ const formValue = ref({});
         }" />
 
       <!-- Pridavani Aliasuu +- -->
-      <BoxAdder name="aliasy" title="Značky & Aliasy" description="Značky pod kterými firma vyrábí, bývalá jména pro firmu..." :minimumBoxes="0" />
+      <BoxAdder name="aliasy" title="Značky & Aliasy"
+        description="Značky pod kterými firma vyrábí, bývalá jména pro firmu..." :minimumBoxes="0" />
 
       <!-- Popisek firmy -->
-      <FormKit type="textarea" label-class="text-secondary" label="Popisek firmy" name="popisek_firmy" rows="8" placeholder=""
-        help="Krátký motivační popisek většinou najdete na stránkách firmy." validation="required|length:10,10000"
-        :validation-messages="{
+      <FormKit type="textarea" label-class="text-secondary" label="Popisek firmy" name="popisek_firmy" rows="8"
+        placeholder="" help="Krátký motivační popisek většinou najdete na stránkách firmy."
+        validation="required|length:10,10000" :validation-messages="{
           required: 'Popisek firmy je povinné pole.',
           length: 'Popisek musí být dlouhé 10 až 10000 znaků.',
         }" />
@@ -70,13 +77,11 @@ const formValue = ref({});
         }" />
 
       <!-- Je zaniklá? -->
-      <FormKit type="checkbox"
-        label="Firma je zaniklá"
+      <FormKit type="checkbox" label="Firma je zaniklá"
         help="Zašrkněte pokud firma zkrachovala nebo přestala vyrábět v Česku." name="zanikla" value=false
-        validation="required"
-        :validation-messages="{
+        validation="required" :validation-messages="{
           required: 'Musíte označit jestli je firma zaniklá, nebo ne.',
-}" />
+        }" />
 
     </section>
 
@@ -91,13 +96,24 @@ const formValue = ref({});
     <div class="row">
       <FormKit type="button" label="Přidat výrobnu" class="column" :input-class="{
         'formkit-input': false,
-        'btn btn-primary btn-outline': true,
+        'btn btn-secondary btn-outline': true,
         'text-lg': true,
-        'px-10': true,
+        'w-full': true,
       }" @click="add_to_list(aktualni_vyrobny)" />
     </div>
 
+    <FormKit type="submit" label="Přidat do databáze" :input-class="{
+      'formkit-input': false,
+      'btn btn-primary btn-outline': true,
+      'text-lg p w-full': true,
+    }"
+    @submit="submitHandler"
+    :config="{
+    validationVisibility: 'dirty',
+    }" incomplete-message="Nějaké pole nebylo vyplněno správně..."/>
+
     <!-- Zobraz JSON pro kontrolu -->
-    <pre wrap>{{ value }}</pre>
+    <!-- <pre wrap>{{ value }}</pre> -->
+
   </FormKit>
 </template>
