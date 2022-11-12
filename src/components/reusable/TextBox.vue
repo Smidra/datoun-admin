@@ -39,9 +39,13 @@
     <!-- ➖ -->
     <FormKit
         type="button"
-        label="➖"
+        label="-"
         class="column"
-        style="background-color:pink;"
+        :input-class="{
+        'formkit-input': false,
+        'btn btn-secondary btn-circle btn-outline':true,
+        'text-2xl':true,
+        }"
         :disabled="!removable"
         @click="remove_from_list_by_id(arrayOfTextfields, number, minimum)"
     />

@@ -34,7 +34,10 @@ const formValue = ref({});
 </script>
 
 <template>
-  <h1 class="text-3xl font-black text-sky-900 mb-4 pl-6">Přidat novou firmu</h1>
+  <h1 class="text-4xl font-sans font-bold text-primary mb-4 pl-6">
+    Přidat novou firmu
+  </h1>
+
   <FormKit
       type="form"
       submit-label="Poslat"
@@ -133,6 +136,12 @@ const formValue = ref({});
           type="button"
           label="Přidat výrobnu"
           class="column"
+          :input-class="{
+          'formkit-input': false,
+          'btn btn-primary btn-outline':true,
+          'text-lg':true,
+          'px-10': true,
+          }"
           @click="add_to_list(aktualni_vyrobny)"
       />
     </div>

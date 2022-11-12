@@ -7,7 +7,7 @@
 }
 
 .simple-section {
-    @apply bg-white p-8 rounded-xl shadow-2xl mb-4;
+    @apply bg-white p-8 rounded-xl shadow-lg mb-4;
 }
 
 .formkit-input[disabled] {
