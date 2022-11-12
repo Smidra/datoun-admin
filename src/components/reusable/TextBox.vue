@@ -39,7 +39,7 @@
     <!-- ➖ -->
     <FormKit
         type="button"
-        label="-"
+        label="−"
         class="column"
         :input-class="{
         'formkit-input': false,

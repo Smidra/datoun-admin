@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans:  ['Open Sans', 'Helvetica Neue', 'sans-serif'],
+        sans: ['Open Sans', 'Helvetica Neue', 'sans-serif'],
       },
       colors: {
         //add your own color
@@ -27,6 +27,23 @@ module.exports = {
         '2xl': '420px',
       },
     },
+  },
+  daisyui: {
+    themes: [ "cmyk", "corporate", "pastel", "cupcake", "fantasy",
+      {
+        mytheme: {
+          "primary": "#16348e",
+          "secondary": "#ce4a59",
+          "accent": "#94f7e5",
+          "neutral": "#1B1B23",
+          "base-100": "#EDEBF0",
+          "info": "#A8D1F0",
+          "success": "#157552",
+          "warning": "#F4C271",
+          "error": "#F91A3F",
+        },
+      },
+    ],
   },
   plugins: [
     require('@tailwindcss/forms'),

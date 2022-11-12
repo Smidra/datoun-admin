@@ -38,7 +38,7 @@ let list = ref([]);
 <template>
   {{ initialise(minimumBoxes, arrayOfTextfields) }}
 
-  <label class="formkit-label">{{ title }}</label>
+  <label class="formkit-label text-secondary">{{ title }}</label>
   <label class="formkit-help" style="padding-bottom:10pt;">{{ description }}</label>
   <label class="formkit-label"></label>
 
@@ -52,7 +52,7 @@ let list = ref([]);
   label="+"
   :input-class="{
   'formkit-input': false,
-  'btn btn-primary btn-circle btn-outline':true,
+  'btn btn-secondary btn-circle btn-outline':true,
   'text-2xl':true,
   'px-10':true,
   }"

@@ -21,17 +21,18 @@ defineProps({
 
     <RemoveCross v-if="removable" @click="$emit('remove', factory_number)" />
 
-    <label class="formkit-label" style="font-size: large;">➔ Výrobna #{{ factory_number }} </label>
+    <label class="formkit-label text-primary" style="font-size: large;">➔ Výrobna #{{ factory_number }} </label>
     <FormKit
         type="group">
 
       <!-- Lokalita -->
       <FormKit
           type="text"
-          label="Obec"
+          label="Lokalita / Obec"
           name="lokalita"
+          label-class="text-secondary"
           placeholder=""
-          help=""
+          help="Kde se výrobna nachází?"
           validation="required|length:2,1000"
           :validation-messages="{
         required: 'Obec je povinné pole.',
@@ -41,12 +42,12 @@ defineProps({
       <!-- Popisek -->
       <FormKit
           type="textarea"
-          label="Specifikace výrobny"
+          label="Poznámka k výrobně"
+          label-class="text-secondary"
           name="popisek_vyroby"
-          rows="4"
-          placeholder="V této výrobně se vyrábí celý sortiment dané firmy."
-          help="Co nejpřesnějši popište, co se v této výrobně/továrně vyrábí."
-          validation="required|length:10,10000"
+          rows="2"
+          placeholder="V této výrobně se vyrábí celý sortiment dané firmy..."
+          validation="length:10,10000"
           :validation-messages="{
         required: 'Specifikace výrobny je povinné pole.',
         length: 'Specifikace výrobny musí být dlouhá 10 až 10000 znaků.',
@@ -62,13 +63,3 @@ defineProps({
   </FormKit>
   </section>
 </template>
-
-<style>
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 50%;
-}
-</style>
