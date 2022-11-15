@@ -53,12 +53,19 @@ defineProps({
         length: 'Specifikace výrobny musí být dlouhá 10 až 10000 znaků.',
       }"
       />
-      <!-- Kategorie -->
+      <!-- Kategorie lvl 0 -->
       <BoxAdder
-          name="kategorie"
-          title="Kategorie"
-          description="Co se ve výrobně vyrábí přesně za typy produktů."
+          name="kategorie.0"
+          title="Kategorie úrovně 0"
+          description="Co se ve výrobně vyrábí obecně za typy produktů."
           :minimumBoxes="1"
+      />
+      <!-- Kategorie lvl 1 -->
+      <BoxAdder
+          name="kategorie.1"
+          title="Kategorie úrovně 1"
+          description="Co se ve výrobně vyrábí přesně za typy produktů. Uveďtě stylem 'Drogerie > Holení'"
+          :minimumBoxes="0"
       />
   </FormKit>
   </section>

@@ -61,13 +61,21 @@ const formValue = ref({});
       <BoxAdder name="aliasy" title="Značky & Aliasy"
         description="Značky pod kterými firma vyrábí, bývalá jména pro firmu..." :minimumBoxes="0" />
 
-      <!-- Popisek firmy -->
+      <!-- Popisek firmy -->poznamky_k_vyrobe
       <FormKit type="textarea" label-class="text-secondary" label="Popisek firmy" name="popisek_firmy" rows="8"
         placeholder="" help="Krátký motivační popisek většinou najdete na stránkách firmy."
         validation="required|length:10,10000" :validation-messages="{
           required: 'Popisek firmy je povinné pole.',
-          length: 'Popisek musí být dlouhé 10 až 10000 znaků.',
+          length: 'Popisek musí být dlouhý 10 až 10000 znaků.',
         }" />
+
+      <!-- Poznámky k výrobě -->
+      <FormKit type="textarea" label-class="text-secondary" label="Poznámky k výrobě" name="poznamky_k_vyrobe" rows="8"
+      placeholder="" help="Vyrábí firma všechny své produkty v ČR, nebo jenom část?"
+      validation="required|length:10,10000" :validation-messages="{
+        required: 'Poznámky k výrobě je povinné pole.',
+        length: 'Poznámky k výrobě musí být dlouhé 10 až 10000 znaků.',
+      }" />
 
       <!-- Eshop firmy -->
       <FormKit type="url" label="E-shop firmy (zkopírujte)" label-class="text-secondary" name="eshop" placeholder=""
