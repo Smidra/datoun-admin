@@ -61,7 +61,7 @@ const formValue = ref({});
       <BoxAdder name="aliasy" title="Značky & Aliasy"
         description="Značky pod kterými firma vyrábí, bývalá jména pro firmu..." :minimumBoxes="0" />
 
-      <!-- Popisek firmy -->poznamky_k_vyrobe
+      <!-- Popisek firmy -->
       <FormKit type="textarea" label-class="text-secondary" label="Popisek firmy" name="popisek_firmy" rows="8"
         placeholder="" help="Krátký motivační popisek většinou najdete na stránkách firmy."
         validation="required|length:10,10000" :validation-messages="{
