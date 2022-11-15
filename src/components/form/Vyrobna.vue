@@ -39,20 +39,6 @@ defineProps({
         length: 'Jméno obce musí být dlouhé 2 až 1000 znaků.',
     }"
       />
-      <!-- Popisek -->
-      <FormKit
-          type="textarea"
-          label="Poznámka k výrobně"
-          label-class="text-secondary"
-          name="popisek_vyroby"
-          rows="2"
-          placeholder="V této výrobně se vyrábí celý sortiment dané firmy..."
-          validation="length:10,10000"
-          :validation-messages="{
-        required: 'Specifikace výrobny je povinné pole.',
-        length: 'Specifikace výrobny musí být dlouhá 10 až 10000 znaků.',
-      }"
-      />
       <!-- Kategorie lvl 0 -->
       <BoxAdder
           name="kategorie.0"
