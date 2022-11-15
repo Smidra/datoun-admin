@@ -53,6 +53,7 @@ CD projektu každý push vybuildí a deployne na adrese admin.datoun.cz
 * Katalog věcí v databázi lze prohlédnout ve velice alfa stádiu na https://smidra.github.io/vyrobky/vue-project/dist/ <-- To jenom abyste nemuseli vždy startovat postmana. 
 
 ```
+Neaktuální...
 {
     "id": 1, // Povinné, seconds since epoch
     "jmeno_firmy": "Alpa", // Povinný string 2-100, povolené všechny znaky.
@@ -111,19 +112,22 @@ CD projektu každý push vybuildí a deployne na adrese admin.datoun.cz
       "Fougere",
       "Chypre",
       "Classique"
-    ]
+    ],
     "popisek_firmy": "Historie společnosti ALPA je historií stabilní a prosperující společnosti. Obliba značky ALPA přetrvala dlouhá desetiletí. Po předválečné etapě výroby v Brně se závod v roce 1948 přestěhoval do Velkého Meziříčí. V roce 1994 proběhla privatizace a společnost ALPA je dnes moderním a perspektivním podnikem. Vlastnictví tradiční české značky a přes 100 let trvající spokojenost našich zákazníků je nejcennějším klenotem, který zdobí značku ALPA.",
+    "poznamky_k_vyrobe": "Všechna výroba probíhá v závodu ve Velkém meziříčí.",
     "eshop": "https://www.alpa.cz/cs/e-shop",
     "logo": "https://www.alpa.cz/images/stories/Aktuality/2017/thumbnails/thumbnails/AL_logoALPA_RGB.jpg",
-    "zanikla": false,
+    "funguje": true,
     "vyrobny": [
         {
             "lokalita": "Velké Meziříčí",
-            "popisek_vyroby": "Všechna výroba probíhá v závodu ve Velkém meziříčí.",
-            "kategorie": [
-                "Zubní pasty",
-                "Masážní gely",
-                "Holení"
+            "kategorie.0": [
+                "Drogerie"
+            ],
+            "kategorie.1": [
+                "Drogerie > Zubní pasty",
+                "Drogerie > Masážní gely",
+                "Drogerie > Holení"
             ]
         }
     ]
