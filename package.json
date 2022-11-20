@@ -12,7 +12,8 @@
     "axios": "^0.27.2",
     "daisyui": "^2.39.1",
     "sweetalert": "^2.1.2",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-autosuggest": "^2.2.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

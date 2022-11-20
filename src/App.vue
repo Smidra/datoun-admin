@@ -5,6 +5,7 @@ import PageWrap from "./components/reusable/PageWrap.vue";
 </script>
 
 <template>
+  <vue-autosuggest></vue-autosuggest>
 
   <PageWrap>
     <FormVyrobna/>
