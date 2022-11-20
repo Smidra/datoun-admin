@@ -44,7 +44,7 @@ let list = ref([]);
 
   <FormKit v-model="list" type="list" :name=name>
     <TextBox v-for="item in arrayOfTextfields" :key=item :number=item :arrayOfTextfields=arrayOfTextfields
-      :minimum=minimumBoxes :removable="arrayOfTextfields.length > 1" />
+      :minimum=minimumBoxes :removable="arrayOfTextfields.length > minimumBoxes" />
   </FormKit>
 
   <FormKit

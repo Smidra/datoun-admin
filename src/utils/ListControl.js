@@ -11,7 +11,7 @@ export function add_to_list(my_list){
 
 // Nelze odebrat posledni vec z listu
 export function remove_from_list(my_list){
-  if(my_list.length === 1){
+  if(my_list.length == 1){
     // pass
   }else{
     my_list.pop();
