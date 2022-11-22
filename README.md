@@ -1,5 +1,5 @@
 # DATOUN admin
-DAtabáze TOváren U Nás aaa
+DAtabáze TOváren U Nás aaabbb
 
 ## administrační rozhraní
 Tato Vue 3 aplikace je od úpravy (zatím především insertu) dat v Meilisearch databázi českých výrobků.
