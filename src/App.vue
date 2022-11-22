@@ -1,7 +1,7 @@
 <script setup>
 import {ref, reactive} from "vue"
 import arrayTextInput from "./components/arrayInput.vue"
-import factories from "./components/factories.vue"
+import arrayFactory2 from "./components/arrayFactory2.vue"
 import textInput2 from "./components/textInput2.vue"
 
 const jsonToSend = reactive({
@@ -59,7 +59,8 @@ let checked = ref(true)
     <label for="funguje?" >Firma stále funguje</label>
 
     <!-- Factories -->
-    <factories @changeJson="changeJson" jsonKey="vyrobny" title="Výrobny"/>
+    <!-- <arrayFactory @changeJson="changeJson" jsonKey="vyrobny" title="Výrobny"/> -->
+    <arrayFactory2 @changeJson="jsonToSend.vyrobny = $event" title="Výrobny"/>
 
   </section>
 
