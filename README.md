@@ -52,46 +52,6 @@ CD projektu každý push vybuildí a deployne na adrese admin.datoun.cz
 * Token může v databázi všechno. Zatím. Pro testování doporučuji Postman + Meilisearch https://docs.meilisearch.com/learn/cookbooks/postman_collection.html#postman-collection-for-meilisearch
 * Katalog věcí v databázi lze prohlédnout ve velice alfa stádiu na https://smidra.github.io/vyrobky/vue-project/dist/ <-- To jenom abyste nemuseli vždy startovat postmana. 
 
-```
-Neaktuální...
-{
-    "id": 1, // Povinné, seconds since epoch
-    "jmeno_firmy": "Alpa", // Povinný string 2-100, povolené všechny znaky.
-    "aliasy": [ // Dobrovolné. Když už jsou přidány musí být not empty < 100 znaků.
-      "Francovka",
-      "Lesana",
-      "Luna",
-      "Amica",
-      "Apiko",
-      "Aviril",
-      "Pedik",
-      "Sypsi",
-      "Batole",
-      "Windsor",
-      "Farao",
-      "Fougere",
-      "Chypre",
-      "Classique"
-    ]
-    "popisek_firmy": "Historie společnosti ALPA je historií stabilní a prosperující společnosti. Obliba značky ALPA přetrvala dlouhá desetiletí. Po předválečné etapě výroby v Brně se závod v roce 1948 přestěhoval do Velkého Meziříčí. V roce 1994 proběhla privatizace a společnost ALPA je dnes moderním a perspektivním podnikem. Vlastnictví tradiční české značky a přes 100 let trvající spokojenost našich zákazníků je nejcennějším klenotem, který zdobí značku ALPA.", // Dobrovolný, musí být pod 10 000 znaků.
-    "eshop": "https://www.alpa.cz/cs/e-shop", // Povinné, musí být URL
-    "logo": "https://www.alpa.cz/images/stories/Aktuality/2017/thumbnails/thumbnails/AL_logoALPA_RGB.jpg", // ???
-    "zanikla": false, // Povinné. Buď true nabo false.
-    "vyrobny": [ // Alespoň jedna povinná.
-        {
-            "lokalita": "Velké Meziříčí", // ???
-            "popisek_vyroby": "Všechna výroba probíhá v závodu ve Velkém meziříčí.", // Povinný. Pod 10 000  znaků.
-            "kategorie": [ // Alespoň jedna povinná.
-                "Zubní pasty", // Neprázdná.
-                "Masážní gely",
-                "Holení"
-            ]
-        }
-    ]
-}
-```
-
-
 ## Ukázka bez popisek
 ```
 {
@@ -121,10 +81,10 @@ Neaktuální...
     "vyrobny": [
         {
             "lokalita": "Velké Meziříčí",
-            "kategorie.0": [
+            "kategorie0": [
                 "Drogerie"
             ],
-            "kategorie.1": [
+            "kategorie1": [
                 "Drogerie > Zubní pasty",
                 "Drogerie > Masážní gely",
                 "Drogerie > Holení"
