@@ -6,8 +6,8 @@ const emit = defineEmits(["update:modelValue"])
 
 
 <template>
-<div>
-<h4>{{label}}</h4>
-<input :value="modelValue" @input="emit('update:modelValue', $event.target.value)" type="text">
-</div>
+    <div>
+        <h4>{{ label }}</h4>
+        <input :value="modelValue" @input="emit('update:modelValue', $event.target.value)" type="text">
+    </div>
 </template>

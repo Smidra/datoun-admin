@@ -21,13 +21,14 @@ function selectItemEventHandler( selectedItem ){
 </script>
 
 <template>
+    Lokalita: 
     <!-- Autocomplete from https://www.npmjs.com/package/vue3-simple-typeahead -->
     <vue3-simple-typeahead
         id="typeahead_id"
-        placeholder="Nápověda kategorií..."
+        placeholder="Nápověda obcí v ČR..."
         :items="f.municipalities"
         :itemProjection="parseCity"
         :minInputLength="2"
         @selectItem="selectItemEventHandler"
-    ></vue3-simple-typeahead>
+    />
 </template>
