@@ -1,6 +1,6 @@
 <script setup>
-import arrayTextInput from "./arrayInput.vue"
-import autocomplete from "./autocompleteCity.vue"
+import arrayTextInput from "../arrayTextInput.vue"
+import autocomplete from "../autocompleteCity.vue"
 
 const { id } = defineProps( ['id'] )
 const emit = defineEmits(["changeJson"])

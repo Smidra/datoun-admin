@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch } from "vue"
-import textInput from "./textInput.vue"
+import textInput from "./old/textInput.vue"
 import textInput2 from "./textInput2.vue";
 
 const { title } = defineProps( [ 'title'] )

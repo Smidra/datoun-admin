@@ -1,6 +1,6 @@
 <script setup>
 import {ref, reactive} from "vue"
-import arrayTextInput from "./components/arrayInput.vue"
+import arrayTextInput from "./components/arrayTextInput.vue"
 import arrayFactory2 from "./components/arrayFactory2.vue"
 import textInput2 from "./components/textInput2.vue"
 
@@ -8,14 +8,6 @@ const jsonToSend = reactive({
   id:Date.now(),
   "funguje":true,
 })
-
-function changeJson(key, value){
-  jsonToSend[key] = value
-}
-
-function logJSON(){
-  console.log(jsonToSend)
-}
 
 let checked = ref(true)
 </script>
@@ -25,7 +17,6 @@ let checked = ref(true)
   <h1 class="text-4xl font-sans font-bold text-primary mb-4 pl-6">
     Přidat novou firmu
   </h1>
-  <button @click="logJSON" >logJSON</button>
 
   <section class="simple-section">  
     {{ jsonToSend }}
