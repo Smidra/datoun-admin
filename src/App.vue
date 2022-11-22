@@ -1,20 +1,23 @@
 <script setup>
 import {ref, reactive} from "vue"
-import textInput from "./components/textInput.vue"
 import arrayTextInput from "./components/arrayInput.vue"
-import boolInput from "./components/boolInput.vue"
 import factories from "./components/factories.vue"
+import textInput2 from "./components/textInput2.vue"
 
 const jsonToSend = reactive({
   id:Date.now(),
-  "funguje": true
+  "funguje":true,
 })
 
 function changeJson(key, value){
   jsonToSend[key] = value
 }
 
-let testprom = ref("")
+function logJSON(){
+  console.log(jsonToSend)
+}
+
+let checked = ref(true)
 </script>
 
 <template>
@@ -22,23 +25,39 @@ let testprom = ref("")
   <h1 class="text-4xl font-sans font-bold text-primary mb-4 pl-6">
     Přidat novou firmu
   </h1>
+  <button @click="logJSON" >logJSON</button>
 
   <section class="simple-section">  
     {{ jsonToSend }}
+
     <!-- Name of company -->
-    <textInput @changeJson="changeJson" jsonKey="jmeno_firmy" label="Jméno firmy" />
+    <!-- <textInput @changeJson="changeJson" jsonKey="jmeno_firmy" label="Jméno firmy" /> -->
+    <!-- <textInput2 :modelValue="jsonToSend.jmeno_firmy" @update:modelValue="jsonToSend.jmeno_firmy = $event" /> -->
+    <textInput2 v-model="jsonToSend.jmeno_firmy" label="Jméno firmy" />
+
     <!-- Array input stuff for aliases-->
-    <arrayTextInput jsonKey="aliasy" @changeJson="changeJson" title="Aliasy & Značky" label="" />
+    <arrayTextInput @changeJson="jsonToSend.aliasy = $event" title="Aliasy & Značky" />
+
     <!-- Description of the company -->
-    <textInput @changeJson="changeJson" jsonKey="popisek_firmy" label="Stručný popisek firmy" />
+    <!-- <textInput @changeJson="changeJson" jsonKey="popisek_firmy" label="Stručný popisek firmy" /> -->
+    <textInput2 v-model="jsonToSend.popisek_firmy" label="Stručný popisek firmy" />
+
     <!-- Notes on where they make stuff -->
-    <textInput @changeJson="changeJson" jsonKey="poznamky_k_vyrobe" label="Poznámky k výrobě" />
+    <!-- <textInput @changeJson="changeJson" jsonKey="poznamky_k_vyrobe" label="Poznámky k výrobě" /> -->
+    <textInput2 v-model="jsonToSend.poznamky_k_vyrobe" label="Poznámky k výrobě" />
+
     <!-- Eshop -->
-    <textInput @changeJson="changeJson" jsonKey="eshop" label="Eshop firmy" />
+    <!-- <textInput @changeJson="changeJson" jsonKey="eshop" label="Eshop firmy" /> -->
+    <textInput2 v-model="jsonToSend.eshop" label="Eshop firmy" />
+
     <!-- Logo URL -->
-    <textInput @changeJson="changeJson" jsonKey="logo" label="Logo firmy" />
+    <!-- <textInput @changeJson="changeJson" jsonKey="logo" label="Logo firmy" /> -->
+    <textInput2 v-model="jsonToSend.logo" label="Logo firmy" />
+
     <!-- Does it work? -->
-    <boolInput @changeJson="changeJson" jsonKey="funguje" label="Firma je zaniklá"/>
+    <input type="checkbox" id="funguje?" v-model="jsonToSend.funguje" />
+    <label for="funguje?" >Firma stále funguje</label>
+
     <!-- Factories -->
     <factories @changeJson="changeJson" jsonKey="vyrobny" title="Výrobny"/>
 

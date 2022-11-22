@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch } from "vue"
-import textInput from "./textInput.vue"
+import factory from "./factory.vue"
 
 const { jsonKey, title, label } = defineProps( ['jsonKey', 'title', 'label'] )
 const emit = defineEmits(["changeJson"])
@@ -23,17 +23,19 @@ function addArray(){
 function removeArray(){
     newArray.value.pop()
 }
-function modifyArray(jsonKey, inputText, id){
-    newArray.value[id].value = inputText
+function modifyArray(jsonKey, input, id){
+    console.log("Hello from modify array");
+    console.log(id)
+    console.log(input)
+    newArray.value[id] = input
 }
 </script>
 
 <template>
 <div>
-    <div>{{ title }} <!-- {{newArray}} --></div>
+    <div>====== {{ title }} ======</div>
 
-    <textInput v-for="input in newArray" :key="input.id" @changeJson="modifyArray" :label=label :id=input.id />
-
+    <factory v-for="input in newArray" :key="input.id" @changeJson="modifyArray" :label=label :id=input.id />
 
     <button @click="addArray">+</button>
     <button @click="removeArray">-</button>
