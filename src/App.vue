@@ -3,9 +3,10 @@ import { reactive } from "vue"
 import ArrayTextInput from "./components/ArrayTextInput.vue"
 import ArrayFactory from "./components/ArrayFactory.vue"
 import TextInput from "./components/TextInput.vue"
+import SendToAlgolia from "./services/SendToAlgolia.vue"
 
 const jsonToSend = reactive({
-  id: Date.now(),
+  "objectID": Date.now().toString(),
   "funguje": true,
 })
 
@@ -37,8 +38,9 @@ const jsonToSend = reactive({
       <label for="funguje?">Firma stále funguje</label>
       <!-- Factories -->
       <ArrayFactory @changeJson="jsonToSend.vyrobny = $event" title="Výrobny" />
-
     </section>
 
+    <SendToAlgolia :jsonToSend="jsonToSend" />
+    
   </main>
 </template>

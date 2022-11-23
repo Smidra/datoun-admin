@@ -12,9 +12,6 @@ function parseCity(city){
 
 /* When autocomplete selects something, this gets called. */
 function selectItemEventHandler( selectedItem ){
-    console.log("Hello form autocomplete");
-    console.log(selectedItem)
-
     emit("changeJson", parseCity(selectedItem) )
 }
 

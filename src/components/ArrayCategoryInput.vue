@@ -13,6 +13,9 @@ function sendArray() {
     newArray.value.forEach(item => {
         arrayForSending.push(item.value)
     });
+
+    console.log("Hello from ArrayCategoryInput")
+    console.log(arrayForSending)
     emit("changeJson", arrayForSending)
 }
 function addArray() {
@@ -23,9 +26,10 @@ function removeArray() {
 }
 </script>
 
+<!-- Shows an array of AutocompleteCategory inputs and two buttons -->
 <template>
     <div>
-        <div>{{ title }} {{ newArray }}</div>
+        <div>{{ title }}</div>
         <AutocompleteCaregory v-for="input in newArray" :key="input.id"
             @changeJson="newArray[input.id].value = $event" />
 
