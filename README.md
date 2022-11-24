@@ -80,7 +80,7 @@ CD projektu každý push vybuildí a deployne na adrese admin.datoun.cz
     "funguje": true,
     "vyrobny": [
         {
-            "lokalita": "Velké Meziříčí",
+            "lokalita": {...obec z obce.json...}, 
             "kategorie0": [
                 "Drogerie"
             ],

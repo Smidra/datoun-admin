@@ -12,7 +12,7 @@ function parseCity(city){
 
 /* When autocomplete selects something, this gets called. */
 function selectItemEventHandler( selectedItem ){
-    emit("changeJson", parseCity(selectedItem) )
+    emit("changeJson", selectedItem )
 }
 
 </script>
