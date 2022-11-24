@@ -25,5 +25,5 @@ function submitHandler() {
 </script>
 
 <template>
-  <button @click="submitHandler()"> Poslat do databáze </button>
+  <button class="btn btn-outline" @click="submitHandler()"> Poslat do databáze </button>
 </template>

@@ -13,12 +13,12 @@ const jsonToSend = reactive({
 </script>
 
 <template>
-  <main class="container pt-8 mb-16">
-    <h1 class="text-4xl font-sans font-bold text-primary mb-4 pl-6">
+  <main>
+    <h1>
       Přidat novou firmu
     </h1>
 
-    <section class="simple-section">
+    <div>
       {{ jsonToSend }}
 
       <!-- Name of company -->
@@ -38,7 +38,7 @@ const jsonToSend = reactive({
       <label for="funguje?">Firma stále funguje</label>
       <!-- Factories -->
       <ArrayFactory @changeJson="jsonToSend.vyrobny = $event" title="Výrobny" />
-    </section>
+    </div>
 
     <SendToAlgolia :jsonToSend="jsonToSend" />
     

@@ -16,10 +16,11 @@ index.search('', {
 const allCategories = []
 let uniqCategories = ref([])
 function processCategories(rawCategories) {
+    console.log(rawCategories)
     // For every Result
     rawCategories.hits.forEach(result => {
         // For every Factory in that result
-        result.vyrobny.forEach(factory => {
+        try{result.vyrobny.forEach(factory => {
             // For every category with lvl 0 (if exists)
             try {
                 factory.kategorie0.forEach(cat0 => {
@@ -38,7 +39,7 @@ function processCategories(rawCategories) {
                     allCategories.push(cat2)
                 })
             } catch { }
-        });
+        })} catch { console.log("No categories found in this hit.")};
     });
     // Create array of unique categories
     // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
