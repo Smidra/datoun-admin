@@ -14,9 +14,6 @@ function sendArray() {
         arrayForSending.push(item.value)
     });
 
-    console.log("Hello from ArrayCategoryInput")
-    console.log(arrayForSending)
-
     /* -- I have stained the honor of my familly with the following code. --- */
     // Initialise arrays for different categories
     let kat0 = []
@@ -25,8 +22,6 @@ function sendArray() {
 
     arrayForSending.forEach(element => {
         let arrayOfCategories = element.split(" > ")
-        console.log("Splitted stuff")
-        console.log(arrayOfCategories)
         if( arrayOfCategories[0] == undefined){
             return // "continue" https://masteringjs.io/tutorials/fundamentals/foreach-continue
         }else{
