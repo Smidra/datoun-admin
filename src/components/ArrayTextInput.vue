@@ -25,7 +25,7 @@ function removeArray() {
 
 <template>
     <div>
-        <div>{{ title }} {{ newArray }}</div>
+        <div>{{ title }}</div>
         <TextInput v-for="input in newArray" :key="input.id" v-model="input.value" />
 
         <button @click="addArray">+</button>

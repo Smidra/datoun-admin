@@ -22,10 +22,12 @@ watch(newFactory.value, () => { emit("changeJson", newFactory.value) })
     <div>
         <!-- Title -->
         <div>--- Výrobna {{ id }} ---</div>
-        
+
         <!-- Searching for a city in Czechia -->
         <AutocompleteCity @changeJson="newFactory.lokalita = $event" />
         <!-- Adding categories -->
-        <ArrayCategoryInput @changeJson="newFactory.kategorie0 = $event" title="Kategorie všech úrovní" />
+        <ArrayCategoryInput
+            @changeJson="newFactory.kategorie0 = $event[0]; newFactory.kategorie1 = $event[1]; newFactory.kategorie2 = $event[2]"
+            title="Kategorie všech úrovní" />
     </div>
 </template>
