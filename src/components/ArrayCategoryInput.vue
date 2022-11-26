@@ -5,6 +5,7 @@ import AutocompleteCaregory from "./AutocompleteCategory.vue";
 const { title } = defineProps(['title'])
 const emit = defineEmits(["changeJson"])
 const newArray = ref([])
+addArray() // Default is one category
 
 watch(newArray.value, sendArray)
 
@@ -65,11 +66,12 @@ function removeArray() {
 <!-- Shows an array of AutocompleteCategory inputs and two buttons -->
 <template>
     <div>
-        <div>{{ title }}</div>
+        <n-p>{{ title }}
         <AutocompleteCaregory v-for="input in newArray" :key="input.id"
             @changeJson="autocompleteCategoryHandler(input.id, $event)" />
 
-        <button @click="addArray">+</button>
-        <button @click="removeArray">-</button>
+        <n-button class="mr-1" @click="addArray">+</n-button>
+        <n-button @click="removeArray">-</n-button>
+        </n-p>
     </div>
 </template>

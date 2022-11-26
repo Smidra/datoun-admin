@@ -18,7 +18,7 @@ function selectItemEventHandler( selectedItem ){
 </script>
 
 <template>
-    Lokalita: 
+    <n-p >Lokalita: 
     <!-- Autocomplete from https://www.npmjs.com/package/vue3-simple-typeahead -->
     <vue3-simple-typeahead
         id="typeahead_id"
@@ -28,4 +28,5 @@ function selectItemEventHandler( selectedItem ){
         :minInputLength="2"
         @selectItem="selectItemEventHandler"
     />
+    </n-p>
 </template>

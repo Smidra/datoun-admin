@@ -5,6 +5,7 @@ import Factory from "./Factory.vue"
 const { title } = defineProps(['title'])
 const emit = defineEmits(["changeJson"])
 const newArray = ref([])
+addArray() // Default is one factory
 
 watch(newArray.value, sendArray)
 
@@ -21,11 +22,12 @@ function removeArray() {
 
 <template>
     <div>
-        <div>====== {{ title }} ======</div>
+        <n-h2>{{ title }}</n-h2>
 
+        <div class="pb-3">
         <Factory v-for="input in newArray" :key="input.id" @changeJson="newArray[input.id] = $event" :id="input.id" />
-
-        <button @click="addArray">+</button>
-        <button @click="removeArray">-</button>
+        <n-button class="mr-1" @click="addArray">+</n-button>
+        <n-button @click="removeArray">-</n-button>
+        </div>
     </div>
 </template>

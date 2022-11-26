@@ -13,34 +13,35 @@ const jsonToSend = reactive({
 </script>
 
 <template>
-  <main>
-    <h1>
-      Přidat novou firmu
-    </h1>
+  <div class="flex flex-col items-center">
 
-    <div>
-      {{ jsonToSend }}
+    <n-h1 class="pt-5 w-96">
+      Přidat novou firmu
+    </n-h1>
+
+    <div class="w-96">
+      <!-- {{ jsonToSend }} -->
 
       <!-- Name of company -->
       <TextInput v-model="jsonToSend.jmeno_firmy" label="Jméno firmy" />
       <!-- Array input stuff for aliases-->
       <ArrayTextInput @changeJson="jsonToSend.aliasy = $event" title="Aliasy & Značky" />
       <!-- Description of the company -->
-      <TextInput v-model="jsonToSend.popisek_firmy" label="Stručný popisek firmy" />
+      <TextInput v-model="jsonToSend.popisek_firmy" label="Stručný popisek firmy" type="textarea"/>
       <!-- Notes on where they make stuff -->
-      <TextInput v-model="jsonToSend.poznamky_k_vyrobe" label="Poznámky k výrobě" />
+      <TextInput v-model="jsonToSend.poznamky_k_vyrobe" label="Poznámky k výrobě" type="textarea" />
       <!-- Eshop -->
       <TextInput v-model="jsonToSend.eshop" label="Eshop firmy" />
       <!-- Logo URL -->
-      <TextInput v-model="jsonToSend.logo" label="Logo firmy" />
+      <TextInput v-model="jsonToSend.logo" label="Logo firmy"/>
       <!-- Does it work? -->
-      <input type="checkbox" id="funguje?" v-model="jsonToSend.funguje" />
-      <label for="funguje?">Firma stále funguje</label>
+      <n-checkbox class="pb-3" :default-checked="true" id="funguje?" v-model="jsonToSend.funguje"> Firma stále funguje </n-checkbox>
       <!-- Factories -->
       <ArrayFactory @changeJson="jsonToSend.vyrobny = $event" title="Výrobny" />
     </div>
 
-    <SendToAlgolia :jsonToSend="jsonToSend" />
-    
-  </main>
+    <div class="w-96">
+      <SendToAlgolia :jsonToSend="jsonToSend" />
+    </div>
+  </div>
 </template>

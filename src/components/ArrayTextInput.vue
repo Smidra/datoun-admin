@@ -25,10 +25,11 @@ function removeArray() {
 
 <template>
     <div>
-        <div>{{ title }}</div>
+        <n-p class="pb-3">{{ title }}
         <TextInput v-for="input in newArray" :key="input.id" v-model="input.value" />
 
-        <button @click="addArray">+</button>
-        <button @click="removeArray">-</button>
+        <n-button class="mr-1" @click="addArray">+</n-button>
+        <n-button @click="removeArray">-</n-button>
+        </n-p>
     </div>
 </template>

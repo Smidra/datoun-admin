@@ -19,9 +19,9 @@ watch(newFactory.value, () => { emit("changeJson", newFactory.value) })
 </script>
 
 <template>
-    <div>
+    <div class="border rounded mb-3 p-3">
         <!-- Title -->
-        <div>--- Výrobna {{ id }} ---</div>
+        <n-h3>{{ id +1}}. výrobna</n-h3>
 
         <!-- Searching for a city in Czechia -->
         <AutocompleteCity @changeJson="newFactory.lokalita = $event" />
