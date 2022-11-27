@@ -1,32 +1,37 @@
 <script setup>
-import { ref, watch } from "vue"
+import { ref, watch, reactive} from "vue"
 import TextInput from "./TextInput.vue";
+import TextInputWithRemove from "./TextInputWithRemove.vue";
 
 const { title } = defineProps(['title'])
 const emit = defineEmits(["changeJson"])
-const newArray = ref([])
+let newArray = reactive([])
 
-watch(newArray.value, sendArray)
+watch(newArray, sendArray)
 
 function sendArray() {
     let arrayForSending = []
-    newArray.value.forEach(item => {
+    newArray.forEach(item => {
         arrayForSending.push(item.value)
     });
     emit("changeJson", arrayForSending)
 }
 function addArray() {
-    newArray.value.push({ "id": newArray.value.length, "value": "" })
+    newArray.push({ "id": newArray.length, "value": "" })
 }
 function removeArray() {
-    newArray.value.pop()
+    newArray.pop()
 }
+function removeById(id){
+    newArray = newArray.filter(e => e.id !== id)
+}
+
 </script>
 
 <template>
     <div>
         <n-p class="pb-3">{{ title }}
-        <TextInput v-for="input in newArray" :key="input.id" v-model="input.value" />
+        <TextInputWithRemove @removeThis="removeById(input.id)" v-for="input in newArray" :key="input.id" v-model="input.value" />
 
         <n-button class="mr-1" @click="addArray">+</n-button>
         <n-button @click="removeArray">-</n-button>

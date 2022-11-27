@@ -9,7 +9,9 @@ const jsonToSend = reactive({
   "objectID": Date.now().toString(),
   "funguje": true,
 })
-
+function logMe(a){
+  console.log(a);
+}
 </script>
 
 <template>
@@ -20,8 +22,8 @@ const jsonToSend = reactive({
     </n-h1>
 
     <div class="w-96">
-      <!-- {{ jsonToSend }} -->
-
+      {{ jsonToSend }}
+      
       <!-- Name of company -->
       <TextInput v-model="jsonToSend.jmeno_firmy" label="Jméno firmy" />
       <!-- Array input stuff for aliases-->
@@ -35,7 +37,7 @@ const jsonToSend = reactive({
       <!-- Logo URL -->
       <TextInput v-model="jsonToSend.logo" label="Logo firmy"/>
       <!-- Does it work? -->
-      <n-checkbox class="pb-3" :default-checked="true" id="funguje?" v-model="jsonToSend.funguje"> Firma stále funguje </n-checkbox>
+      <n-checkbox @on-update="logMe($event)" class="pb-3" :default-checked="true" v-model="jsonToSend.funguje"> Firma stále funguje </n-checkbox>
       <!-- Factories -->
       <ArrayFactory @changeJson="jsonToSend.vyrobny = $event" title="Výrobny" />
     </div>
