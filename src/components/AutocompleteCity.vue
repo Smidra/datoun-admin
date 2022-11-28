@@ -45,7 +45,7 @@ function selectItemEventHandler() {
 
 // update visible options base on entered string
 function updateOptions() {
-  if ((searchField || "").length < MIN_SEARCH_LENGTH) {
+  if ((searchField.value || "").length < MIN_SEARCH_LENGTH) {
     options.value = [];
     return;
   }
