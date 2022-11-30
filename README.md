@@ -14,7 +14,7 @@ Preview katalogu na testování:
 * https://github.com/Smidra/datoun-katalog (REPO)
 
 ## TODO
-* [ ] Přidávání a odebírání aliasů nefunguje. Po odebrání nepřidává spolehlivě.
+* [x] Přidávání a odebírání aliasů nefunguje. Po odebrání nepřidává spolehlivě.
 * [ ] Checkbox nepřeává svou value do JSONU k poslání.
 * [ ] Validace polí, nějaké základní (nejde kliknout "odeslat" úplně hned)
 * [ ] Nějaká zpětná vazba na úspěšnosti odeslání.

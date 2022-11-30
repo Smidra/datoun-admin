@@ -74,6 +74,7 @@ watch(searchField, throttledUpdateOptions)
         v-model:value="searchField"
         :options="options"
         :on-blur="selectItemEventHandler"
+        placeholder="Zadejte obec v ČR..."
     />
   </n-p>
 </template>
