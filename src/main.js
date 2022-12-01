@@ -1,10 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import '@formkit/themes/genesis'
-import { plugin, defaultConfig } from '@formkit/vue'
-import VueAutosuggest from "vue-autosuggest";
+import SimpleTypeahead from 'vue3-simple-typeahead';
+import naive from 'naive-ui'
 
-const app = createApp(App);
-app.use(plugin, defaultConfig)
-app.use(VueAutosuggest)
-app.mount('#app')
+import 'vue3-simple-typeahead/dist/vue3-simple-typeahead.css'; //Optional default CSS
+import "./style.css"
+// import './assets/main.css'  
+
+/* createApp(App).mount('#app') */
+
+let app = createApp(App);
+app.use(SimpleTypeahead);
+app.use(naive)
+app.mount('#app');
