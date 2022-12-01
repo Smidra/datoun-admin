@@ -17,9 +17,10 @@ function logMe(a) {
 <template>
   <div class="flex flex-col items-center bg-gray-100">
 
-    <n-h1 class="pt-5 w-96">
-      Přidat novou firmu
-    </n-h1>
+    <n-p class="pt-5 w-96">
+      <n-h1 class="text-5xl">Datoun </n-h1>
+      <n-blockquote class=""> Přidat novou firmu </n-blockquote>
+    </n-p>
 
     <div class="p-3 border rounded bg-white">
       <div class="w-96">
