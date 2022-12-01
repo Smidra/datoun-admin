@@ -9,41 +9,53 @@ const jsonToSend = reactive({
   "objectID": Date.now().toString(),
   "funguje": true,
 })
-function logMe(a){
+function logMe(a) {
   console.log(a);
 }
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center bg-gray-100">
 
     <n-h1 class="pt-5 w-96">
       Přidat novou firmu
     </n-h1>
 
-    <div class="w-96">
-      {{ jsonToSend }}
-      
-      <!-- Name of company -->
-      <TextInput v-model="jsonToSend.jmeno_firmy" label="Jméno firmy" />
-      <!-- Array input stuff for aliases-->
-      <ArrayTextInput @changeJson="jsonToSend.aliasy = $event" title="Aliasy & Značky" />
-      <!-- Description of the company -->
-      <TextInput v-model="jsonToSend.popisek_firmy" label="Stručný popisek firmy" type="textarea"/>
-      <!-- Notes on where they make stuff -->
-      <TextInput v-model="jsonToSend.poznamky_k_vyrobe" label="Poznámky k výrobě" type="textarea" />
-      <!-- Eshop -->
-      <TextInput v-model="jsonToSend.eshop" label="Eshop firmy" />
-      <!-- Logo URL -->
-      <TextInput v-model="jsonToSend.logo" label="Logo firmy"/>
-      <!-- Does it work? -->
-      <n-checkbox @on-update="logMe($event)" class="pb-3" :default-checked="true" v-model="jsonToSend.funguje"> Firma stále funguje </n-checkbox>
-      <!-- Factories -->
-      <ArrayFactory @changeJson="jsonToSend.vyrobny = $event" title="Výrobny" />
+    <div class="p-3 border rounded bg-white">
+      <div class="w-96">
+        <!-- {{ jsonToSend }} -->
+
+        <!-- Name of company -->
+        <TextInput v-model="jsonToSend.jmeno_firmy" label="Jméno firmy" />
+        <!-- Array input stuff for aliases-->
+        <ArrayTextInput @changeJson="jsonToSend.aliasy = $event" title="Aliasy & Značky" />
+        <!-- Description of the company -->
+        <TextInput v-model="jsonToSend.popisek_firmy" label="Stručný popisek firmy" type="textarea" />
+        <!-- Notes on where they make stuff -->
+        <TextInput v-model="jsonToSend.poznamky_k_vyrobe" label="Poznámky k výrobě" type="textarea" />
+        <!-- Eshop -->
+        <TextInput v-model="jsonToSend.eshop" label="Eshop firmy" />
+        <!-- Logo URL -->
+        <TextInput v-model="jsonToSend.logo" label="Logo firmy" />
+        <!-- Does it work? -->
+        <!-- <n-checkbox @on-update:checked="logMe($event)" class="pb-3" :default-checked="true" v-model="jsonToSend.funguje"> Firma stále funguje </n-checkbox> -->
+        <n-checkbox @update:checked="jsonToSend.funguje = $event" :default-checked="true" class="pb-3"> Firma stále
+          funguje </n-checkbox>
+        <!-- Factories -->
+        <ArrayFactory @changeJson="jsonToSend.vyrobny = $event" title="Výrobny" />
+      </div>
+
+      <!-- Button to send JSON to algolia. It can conjure dialogs. -->
+      <n-dialog-provider>
+        <div class="w-96">
+          <SendToAlgolia :jsonToSend="jsonToSend" />
+        </div>
+      </n-dialog-provider>
+
     </div>
 
-    <div class="w-96">
-      <SendToAlgolia :jsonToSend="jsonToSend" />
-    </div>
+    <!-- Free space at the bottom for nices scrolling. -->
+    <div class="mb-60"></div>
+
   </div>
 </template>

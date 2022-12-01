@@ -19,7 +19,7 @@ watch(newFactory.value, () => { emit("changeJson", newFactory.value) })
 </script>
 
 <template>
-    <div class="border rounded mb-3 p-3">
+    <div class="border rounded mb-3 p-3 ">
         <!-- Title -->
         <n-h3>{{ id +1}}. výrobna</n-h3>
 
@@ -28,6 +28,6 @@ watch(newFactory.value, () => { emit("changeJson", newFactory.value) })
         <!-- Adding categories -->
         <ArrayCategoryInput
             @changeJson="newFactory.kategorie0 = $event[0]; newFactory.kategorie1 = $event[1]; newFactory.kategorie2 = $event[2]"
-            title="Kategorie všech úrovní" />
+            title="Kategorie výrobků této výrobny" />
     </div>
 </template>
