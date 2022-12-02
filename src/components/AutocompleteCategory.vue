@@ -1,53 +1,15 @@
 <script setup>
-import { ref } from "vue"
-import algoliasearch from "algoliasearch"
+import { ref, onMounted } from "vue"
+import { loadCategories } from "../utils/algolia"
+
 const emit = defineEmits(["changeJson"])
 
-/* Dynamically import JSON with all categories used in the entire database */
-// https://www.algolia.com/doc/api-reference/api-methods/search/
-const client = algoliasearch('S27OT8U78J', '6c71ae31ec984a2185234a501482d57a') // API Key to SEARCH
-const index = client.initIndex('firmy')
-index.search('', {
-    attributesToRetrieve: ['vyrobny.kategorie0', 'vyrobny.kategorie1', 'vyrobny.kategorie2'],
-    hitsPerPage: 10000,
-}).then(processCategories);
+let uniqCategories = ref()
 
-// Extract all the messy data that I recieved from Algolia into a nice JSON for autoomplete dropdown 
-const allCategories = []
-let uniqCategories = ref([])
-function processCategories(rawCategories) {
-    // For every Result
-    rawCategories.hits.forEach(result => {
-        // For every Factory in that result
-        try {
-            result.vyrobny.forEach(factory => {
-                // For every category with lvl 0 (if exists)
-                try {
-                    factory.kategorie0.forEach(cat0 => {
-                        allCategories.push(cat0)
-                    })
-                } catch { }
-                // For every category with lvl 1 (if exists)
-                try {
-                    factory.kategorie1.forEach(cat1 => {
-                        allCategories.push(cat1)
-                    })
-                } catch { }
-                // For every category with lvl 2 (if exists)
-                try {
-                    factory.kategorie2.forEach(cat2 => {
-                        allCategories.push(cat2)
-                    })
-                } catch { }
-            })
-        } catch {
-            // console.log("No categories found in this hit.")
-        };
-    });
-    // Create array of unique categories
-    // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-    uniqCategories.value = [...new Set(allCategories)];
-}
+onMounted(async () => {
+    // Extract all the messy data that I recieved from Algolia into a nice JSON for autoomplete dropdown 
+    uniqCategories.value = await loadCategories()
+})
 
 /* When autocomplete selects something, this gets called. */
 function selectItemEventHandler(selectedItem) {
