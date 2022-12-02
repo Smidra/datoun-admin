@@ -17,13 +17,13 @@ function logMe(a) {
 <template>
   <div class="flex flex-col items-center bg-gray-100">
 
-    <n-p class="pt-5 w-96">
+    <n-p class="pt-5 pl-5 w-full md:w-1/2 md:max-w-lg">
       <n-h1 class="text-5xl">Datoun </n-h1>
       <n-blockquote class=""> Přidat novou firmu </n-blockquote>
     </n-p>
 
-    <div class="p-3 border rounded bg-white">
-      <div class="w-96">
+    <div class="w-full p-3 md:w-1/2 md:max-w-lg">
+      <div class="p-3 border rounded bg-white">
         <!-- {{ jsonToSend }} -->
 
         <!-- Name of company -->
