@@ -1,96 +1,81 @@
 <script setup>
-import { ref, watch } from "vue"
+import { ref, watch, computed } from "vue"
 import AutocompleteCategory from "./AutocompleteCategory.vue";
 
 const { title } = defineProps(['title'])
 const emit = defineEmits(["changeJson"])
-const newArray = ref([])
-let arrayForShowing = ref([])
-addArray() // Default is one category
 
-watch(newArray.value, sendArray)
+// An array of strings containing categories picked by the user.
+const selectedCategories = ref([""])
 
-function sendArray() {
-    let arrayForSending = []
-    newArray.value.forEach(item => {
-        arrayForSending.push(item.value)
-    });
+// Parsed categories for each category level.
+const categoriesByLevel = computed(() => {
+    const result = {
+        firstLevel: new Set(),
+        secondLevel: new Set(),
+        thirdLevel: new Set()
+    }
 
-    /* -- I have stained the honor of my familly with the following code. --- */
-    // Initialise arrays for different categories
-    let kat0 = []
-    let kat1 = []
-    let kat2 = []
-
-    arrayForSending.forEach(element => {
-        let arrayOfCategories = element.split(" > ")
-        if (arrayOfCategories[0] == undefined) {
-            return // "continue" https://masteringjs.io/tutorials/fundamentals/foreach-continue
-        } else {
-            // First element definitely exists, so add it to first array.
-            kat0.push(arrayOfCategories[0])
-            if (arrayOfCategories[1] == undefined) {
-                return
-            } else {
-                // Second element definitely exists, so add to array: first_element + " > " + second_element
-                kat1.push(arrayOfCategories[0].concat(" > ", arrayOfCategories[1]))
-                if (arrayOfCategories[2] == undefined) {
-                    return
-                } else {
-                    // Third element definitely exists, so add to array: first_element + " > " + second_element + ...
-                    kat2.push(arrayOfCategories[0].concat(" > ", arrayOfCategories[1], " > ", arrayOfCategories[2]))
-                }
-            }
+    selectedCategories.value.forEach(selectedCategory => {
+        // Ignore whitespace-only strings.
+        if (selectedCategory.trim() == "") {
+            return
         }
-    });
-    // Remove duplicates from arrays. Put arrays together into a big array for sending.
-    const megaArray = [[...new Set(kat0)], [...new Set(kat1)], [...new Set(kat2)]]
-    /* --- Please dispose the buckets filled with vomit in the nearest bin. Mischief managed. --- */
+        let arrayOfCategories = selectedCategory.split(" > ")
+        result.firstLevel.add(arrayOfCategories[0])
+        if (arrayOfCategories.length < 2) {
+            return
+        }
+        result.secondLevel.add(arrayOfCategories[0] + " > " + arrayOfCategories[1])
+        if (arrayOfCategories.length < 3) {
+            return
+        }
+        result.thirdLevel.add(categoryString)
+    })
 
-    /* Send the array */
-    emit("changeJson", megaArray)
-    /* Show the array */
-    arrayForShowing.value = megaArray
-}
+    return result
+})
+watch(categoriesByLevel, () => {emit("changeJson", categoriesByLevel.value)})
 
-/* This Gets calld every time something is picked in autocomplete */
+/* This Gets called every time something is picked in autocomplete */
 function autocompleteCategoryHandler(id, newCat) {
-    newArray.value[id].value = newCat
+    selectedCategories.value[id] = newCat
 }
 
 function addArray() {
-    newArray.value.push({ "id": newArray.value.length, "value": "" })
+    selectedCategories.value.push("")
 }
+
 function removeArray() {
-    newArray.value.pop()
+    selectedCategories.value.pop()
 }
 </script>
 
 <!-- Shows an array of AutocompleteCategory inputs and two buttons -->
 <template>
     <div>
-        <n-p>{{ title }}<a class="p-1"></a>
-            <AutocompleteCategory v-for="input in newArray" :key="input.id"
-                @changeJson="autocompleteCategoryHandler(input.id, $event)" />
+        <n-p>{{ title }}
+            <AutocompleteCategory v-for="(selectedCategory, index) in selectedCategories" :key="index"
+                @changeJson="autocompleteCategoryHandler(index, $event)" />
 
-            <n-button class="mr-1" @click="addArray">+</n-button>
+            <n-button @click="addArray" class="mr-1">+</n-button>
             <n-button @click="removeArray">-</n-button>
         </n-p>
 
         <n-timeline>
             <n-timeline-item type="success" title="Použité kategorie první úrovně">
-                <div v-for="kat0 in arrayForShowing[0]">
-                    <p>• {{ kat0 }}</p>
+                <div v-for="category in categoriesByLevel.firstLevel">
+                    <p>• {{ category }}</p>
                 </div>
             </n-timeline-item>
             <n-timeline-item type="info" title="Použité kategorie druhé úrovně">
-                <div v-for="kat1 in arrayForShowing[1]">
-                    <p>• {{ kat1 }}</p>
+                <div v-for="category in categoriesByLevel.secondLevel">
+                    <p>• {{ category }}</p>
                 </div>
             </n-timeline-item>
             <n-timeline-item type="warning" title="Použité kategorie třetí úrovně">
-                <div v-for="kat2 in arrayForShowing[2]">
-                    <p>• {{ kat2 }}</p>
+                <div v-for="category in categoriesByLevel.thirdLevel">
+                    <p>• {{ category }}</p>
                 </div>
             </n-timeline-item>
         </n-timeline>
