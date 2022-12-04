@@ -14,6 +14,12 @@ const newFactory = ref({
     "kategorie2": [],
 })
 
+function updateCategories(event) {
+    newFactory.value.kategorie0 = Array.from(event.firstLevel)
+    newFactory.value.kategorie1 = Array.from(event.secondLevel)
+    newFactory.value.kategorie2 = Array.from(event.thirdLevel)
+}
+
 watch(newFactory.value, () => { emit("changeJson", newFactory.value) })
 
 </script>
@@ -21,13 +27,13 @@ watch(newFactory.value, () => { emit("changeJson", newFactory.value) })
 <template>
     <div class="border rounded mb-3 p-3 ">
         <!-- Title -->
-        <n-h3>{{ id +1}}. výrobna</n-h3>
+        <n-h3>{{ id + 1 }}. výrobna</n-h3>
 
         <!-- Searching for a city in Czechia -->
         <AutocompleteCity @changeJson="newFactory.lokalita = $event" />
         <!-- Adding categories -->
         <ArrayCategoryInput
-            @changeJson="newFactory.kategorie0 = $event[0]; newFactory.kategorie1 = $event[1]; newFactory.kategorie2 = $event[2]"
+            @changeJson="updateCategories($event)"
             title="Kategorie výrobků této výrobny" />
     </div>
 </template>

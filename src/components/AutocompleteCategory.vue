@@ -4,7 +4,7 @@ import { loadCategories } from "../utils/algolia"
 
 const emit = defineEmits(["changeJson"])
 
-let uniqCategories = ref()
+let uniqCategories = ref([])
 
 onMounted(async () => {
     // Extract all the messy data that I recieved from Algolia into a nice JSON for autoomplete dropdown 
