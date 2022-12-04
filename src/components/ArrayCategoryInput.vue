@@ -1,12 +1,27 @@
 <script setup>
-import { ref, watch, computed } from "vue"
-import AutocompleteCategory from "./AutocompleteCategory.vue";
+import { ref, watch, computed, onMounted } from "vue"
+import { loadCategories } from "../utils/algolia"
 
 const { title } = defineProps(['title'])
 const emit = defineEmits(["changeJson"])
 
-// An array of strings containing categories picked by the user.
-const selectedCategories = ref([""])
+// An array of objects representing each category input.
+const selectedCategories = ref([])
+addArray()
+
+const allCategories = ref([])
+onMounted(async () => {
+    // Extract all the messy data that I recieved from Algolia into a nice JSON for autoomplete dropdown 
+    allCategories.value = await loadCategories()
+})
+
+// An array of strings containing 'allCategories' without 'selectedCategories'.
+const availableCategories = computed(() => {
+    return allCategories.value.filter(category => {
+        const isSelected = selectedCategories.value.some(selectedCategory => selectedCategory.category == category)
+        return !isSelected
+    })
+})
 
 // Parsed categories for each category level.
 const categoriesByLevel = computed(() => {
@@ -18,10 +33,11 @@ const categoriesByLevel = computed(() => {
 
     selectedCategories.value.forEach(selectedCategory => {
         // Ignore whitespace-only strings.
-        if (selectedCategory.trim() == "") {
+        const categoryString = selectedCategory.category
+        if (categoryString.trim() == "") {
             return
         }
-        let arrayOfCategories = selectedCategory.split(" > ")
+        let arrayOfCategories = categoryString.split(" > ")
         result.firstLevel.add(arrayOfCategories[0])
         if (arrayOfCategories.length < 2) {
             return
@@ -38,28 +54,41 @@ const categoriesByLevel = computed(() => {
 watch(categoriesByLevel, () => {emit("changeJson", categoriesByLevel.value)})
 
 /* This Gets called every time something is picked in autocomplete */
-function autocompleteCategoryHandler(id, newCat) {
-    selectedCategories.value[id] = newCat
+function autocompleteCategoryHandler(index, category) {
+    selectedCategories.value[index].category = category
 }
 
 function addArray() {
-    selectedCategories.value.push("")
+    selectedCategories.value.push({key:Math.random(), category:""})
 }
 
-function removeArray() {
-    selectedCategories.value.pop()
+function removeArray(index) {
+    // Remove element at given index.
+    selectedCategories.value.splice(index, 1)
 }
 </script>
 
-<!-- Shows an array of AutocompleteCategory inputs and two buttons -->
+<!-- Shows an array of autocomplete category inputs -->
 <template>
     <div>
         <n-p>{{ title }}
-            <AutocompleteCategory v-for="(selectedCategory, index) in selectedCategories" :key="index"
-                @changeJson="autocompleteCategoryHandler(index, $event)" />
-
+            <div class="flex flex-row flex-nowrap py-1" v-for="(selectedCategory, index) in selectedCategories" :key="selectedCategory.key">
+                <div class="w-full">
+                    <vue3-simple-typeahead class="p-2 border border-1 rounded-sm w-full" 
+                        placeholder="Zadejte kategorii..."    
+                        :items="availableCategories" 
+                        :minInputLength="1" 
+                        :item="selectedCategory" 
+                        @onInput="(category) => {autocompleteCategoryHandler(index, category.input)}"
+                        @selectItem="(category) => {autocompleteCategoryHandler(index, category)}"
+                         />
+                    <div class="py-1" />
+                </div>
+                <div class="ml-1" v-if="(index != 0 || selectedCategories.length != 1)">
+                    <n-button @click="removeArray(index)">-</n-button>
+                </div>
+            </div>
             <n-button @click="addArray" class="mr-1">+</n-button>
-            <n-button @click="removeArray">-</n-button>
         </n-p>
 
         <n-timeline>
