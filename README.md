@@ -1,44 +1,54 @@
 # DATOUN admin
-DAtabáze TOváren U Nás
+"DAtabáze TOváren U Nás" is an opensource database of Czech factories. It's goal is to provide simple search interface for those searching for products made in Czechia.
 
-## Administrační rozhraní
-Tato Vue 3 aplikace je od insertu dat do Algolia databáze českých továren na výrobky v ČR.
-Nepočítáme služby a jídlo. Vlastník nás nezajímá.
+All contributions welcome ❤️
 
-Live build tohoto repozitáře:
-* https://admin.datoun.cz
-* https://github.com/Smidra/datoun-admin (REPO)
+## Tech stack
+The whole project consists of 3 parts, all licensed under the MIT license.
 
-Preview katalogu na testování:
-* https://datoun.cz
-* https://github.com/Smidra/datoun-katalog (REPO)
+- Datoun admin [admin.datoun.cz](https://admin.datoun.cz) + [REPO](https://github.com/Smidra/datoun-admin)
+  - Vue3 app for inserting new companies into the database
+- Datoun katalog [datoun.cz](https://datoun.cz) + [REPO](https://github.com/Smidra/datoun-katalog)
+  - Vue3 + instantsearch app for browsing the database.
+- Algolia backend
 
-## TODO
-* [x] Přidávání a odebírání aliasů nefunguje. Po odebrání nepřidává spolehlivě.
-* [ ] Checkbox nepřeává svou value do JSONU k poslání.
-* [ ] Validace polí, nějaké základní (nejde kliknout "odeslat" úplně hned)
-* [ ] Nějaká zpětná vazba na úspěšnosti odeslání.
-* [ ] Odebírání věcí v poli i mimo pořadí - mínuskem nebo křížkem u věci.
-* [ ] Našeptávání -> Tato firma už v databázi je --> editace a update záznamu (Důležitá funkce, ale až na později.)
-
-
-## Project setup
+## Installation
 ```
 git clone git@github.com:Smidra/datoun-admin.git
 npm install
 npm run dev
 ```
-CD projektu každý push vybuildí a deployne na adrese admin.datoun.cz
+CD pipeline build every version in main and pushes it to production.
 
-## Databáze
+## Database
 * Algolia ID
   * S27OT8U78J
-* Bearer token pro přidávání
+* Bearer token
   * Authorization:Bearer 39e5cf3041647ce2f68c09b8e477eb8c
-* Index (jméno schéma)
+* Index
   * firmy
 
-## Ukázka bez popisek
+## Mockup JSON
+| Key           | Validation           | Description  |
+| :------------- |:-------------| :-----|
+| id |              |  Seconds since Epoch  |
+| jmeno_firmy   |   |  Name of the company  |
+| aliasy  |         |  [Array of sitrings] Brands from the company, aliases...  |
+| popisek_firmy  |  |  Short description filled with keywords. Preferably from the company website.  |
+| poznamky_k_vyrobe  |   |  Do they make everything in Czechia? Are there exceptions?  |
+| eshop  |          |  URL where to buy products from the company  |
+| logo  |           |  URL of a logo of the company  |
+| funguje  |        |  [Boolean] Is the company still operating?  |
+| vyrobny  |        |  [Array of VYROBNY objects] One for every factory the company has |
+
+### VYROBNY object
+| Key        | Validation           | Description  |
+| :------------- |:-------------| :-----|
+| lokalita  |     |  [OBEC object from obce.json] A town where the factory is  |
+| kategorie0  |   |  [ARRAY of strings] Higest level categories of the products made in this factory |
+| kategorie1  |   |  [ARRAY of strings] Categories of the products made in this factory 1 level deep |
+| kategorie2  |   |  [ARRAY of strings] Categories of the products made in this factory 2 level deep |
+
 ```
 {
     "id": 1,
